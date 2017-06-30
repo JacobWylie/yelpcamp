@@ -16,9 +16,9 @@ app.get('/', (req, res) => {
 app.get('/campgrounds', (req, res) => {
 	// Temporary campground array before databse
 	let campgrounds = [
-		{name: "Salmon Creek", image: "https://unsplash.it/200/300/?random"},
-		{name: "Trout Land", image: "https://unsplash.it/200/300/?random"},
-		{name: "Mountain Place", image: "https://unsplash.it/200/300/?random"}
+		{name: "Salmon Creek", image: "https://unsplash.it/500/300/?random"},
+		{name: "Trout Land", image: "https://unsplash.it/400/300/?random"},
+		{name: "Mountain Place", image: "https://unsplash.it/600/300/?random"}
 	];
 	res.render('campgrounds', {campgrounds: campgrounds});
 })
