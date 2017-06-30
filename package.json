@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/JacobWylie/yelpcamp/issues"
   },
-  "homepage": "https://github.com/JacobWylie/yelpcamp#readme"
+  "homepage": "https://github.com/JacobWylie/yelpcamp#readme",
+  "dependencies": {
+    "ejs": "^2.5.6",
+    "express": "^4.15.3"
+  }
 }
