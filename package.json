@@ -1,0 +1,19 @@
+{
+  "name": "yelpcamp",
+  "version": "1.0.0",
+  "description": "Yelp Camp - Colt Steele Web Developer Bootcamp",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JacobWylie/yelpcamp.git"
+  },
+  "author": "Jacob Wylie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JacobWylie/yelpcamp/issues"
+  },
+  "homepage": "https://github.com/JacobWylie/yelpcamp#readme"
+}
