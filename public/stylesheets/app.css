@@ -1,3 +1,39 @@
+.site-name {
+	font-size: 22px;
+}
+
+.nav-item {
+	font-size: 14px;
+	margin-top: 3px;
+}
+
+.navbar form input,
+.navbar form button {
+	padding: 7px;
+	font-size: 11px;
+	transition: all .35s ease-in-out;
+}
+
+.navbar form button.btn-outline-info {
+	border-right: none;
+	border-radius: 0;
+	border-top-left-radius: 10%;
+	border-bottom-left-radius: 10%;
+	cursor: pointer;
+}
+
+.navbar form button.btn-outline-success {
+	border-left: none;
+	border-radius: 0;
+	border-top-right-radius: 10%;
+	border-bottom-right-radius: 10%;
+	cursor: pointer;
+}
+
+.navbar form input {
+	max-width: 100px;
+}
+
 .card {
 	margin-bottom: 25px;
 }
@@ -10,4 +46,13 @@
 .card-block a {
 	font-size: 11px;
 	max-width: 100%;
+}
+
+
+/* Fixes responsive navbar centering in xs */
+@media screen and (max-width: 575px) {
+    .nav-container {
+        margin-left: 0;
+        margin-right: 0;
+    }
 }
