@@ -48,6 +48,25 @@
 	max-width: 100%;
 }
 
+.new-campground-heading {
+	font-size: 26px;
+}
+
+.new-campground-form {
+	font-size: 14px;
+}
+
+.new-campground-form button {
+	font-size: 14px;
+	padding: 6px;
+	cursor: pointer;
+}
+
+.form-group input,
+.form-group textarea {
+	font-size: 12px;
+}
+
 
 /* Fixes responsive navbar centering in xs */
 @media screen and (max-width: 575px) {
@@ -56,3 +75,19 @@
         margin-right: 0;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
