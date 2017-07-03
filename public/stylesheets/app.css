@@ -1,0 +1,13 @@
+.card {
+	margin-bottom: 25px;
+}
+
+.card-img-top {
+	width: 100%;
+
+}
+
+.card-block a {
+	font-size: 11px;
+	max-width: 100%;
+}

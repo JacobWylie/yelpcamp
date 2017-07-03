@@ -8,10 +8,17 @@ app.set('view engine', 'ejs');
 
 	// Temporary campground array before databse
 	let campgrounds = [
-		{name: "Salmon Creek", image: "https://unsplash.it/500/300/?random"},
-		{name: "Trout Land", image: "https://unsplash.it/400/300/?random"},
-		{name: "Mountain Place", image: "https://unsplash.it/600/300/?random"}
+		{name: "Salmon Creek", image: "https://unsplash.it/400/300?image=765"},
+		{name: "Trout Land", image: "https://unsplash.it/400/300?image=786"},
+		{name: "Mountain Place", image: "https://unsplash.it/400/300?image=770"},
+		{name: "Salmon Creek", image: "https://unsplash.it/400/300?image=765"},
+		{name: "Trout Land", image: "https://unsplash.it/400/300?image=786"},
+		{name: "Mountain Place", image: "https://unsplash.it/400/300?image=770"},
+		{name: "Salmon Creek", image: "https://unsplash.it/400/300?image=765"},
+		{name: "Trout Land", image: "https://unsplash.it/400/300?image=786"},
+		{name: "Mountain Place", image: "https://unsplash.it/400/300?image=770"}
 	];
+
 
 // Serve static js and css from /public
 app.use(express.static('public'));
