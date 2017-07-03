@@ -1,14 +1,36 @@
 <% include partials/header %>
 
-<h1>Reviewed Campgrounds</h1>
+<div class="container">
 
-<a href="/campgrounds/new" class="btn btn-primary" role="button">Add a new Campground</a>
+	<header class="jumbotron">
+		<div class="container">
+			<h1>Welcome to YelpCamp!</h1>
+			<p>View our hand-picked campgrounds from all over the world</p>
+			<a href="/campgrounds/new" class="btn btn-primary" role="button">Add a new Campground</a>
+		</div>
+	</header>
 
-<% campgrounds.forEach((campground => { %>
-	<div>
-		<p>Name: <%= campground.name %></p>
-		<img src="<%= campground.image %>">
-	</div>
-<%	})) %>
+	<div class="row">
+		<div class="col-lg-12">
+			<h3>Our Most Popular Campgrounds</h3>
+		</div>
+	</div> <!-- /row -->
+
+	<div class="row">
+		<% campgrounds.forEach((campground => { %>
+			<div class="col-md-4 col-sm-6">
+				<div class="card" style="">
+					<img class="card-img-top" src="<%= campground.image %>" alt="Card image cap">
+					<div class="card-block">
+						<h4 class="card-title">Name: <%= campground.name %></h4>
+				    	<p class="card-text">lorem ipsum ....</p>
+				    	<a href="#" class="btn btn-primary">Go somewhere</a>
+					</div> <!-- /card-block -->
+				</div> <!-- /card -->
+			</div> <!-- /col -->
+		<%	})) %>
+	</div> <!-- /row -->
+
+</div> <!-- /container -->
 
 <% include partials/footer %>
