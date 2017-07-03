@@ -1,10 +1,12 @@
 const express = require('express'),
-	  app = express();
+	  app = express(),
+	  bodyParser = require('body-parser');
 
+app.use(bodyParser.urlencoded({extended: true}));
 // Use .ejs templating
 app.set('view engine', 'ejs');
 
-// Serve static js and css
+// Serve static js and css from /public
 app.use(express.static('public'));
 
 // Home Route
@@ -21,6 +23,13 @@ app.get('/campgrounds', (req, res) => {
 		{name: "Mountain Place", image: "https://unsplash.it/600/300/?random"}
 	];
 	res.render('campgrounds', {campgrounds: campgrounds});
+})
+
+// POST new campground to /campgrounds
+app.post('/campgrounds', (req, res) => {
+	res.send("posted to campgrounds")
+	// get data from form and add to campgrounds array
+	//redirect back to campgrounds page
 })
 
 // All other routes
