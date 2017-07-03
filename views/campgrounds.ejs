@@ -1,5 +1,9 @@
 <% include partials/header %>
 
+<h1>Reviewed Campgrounds</h1>
+
+<a href="/campgrounds/new" class="btn btn-primary" role="button">Add a new Campground</a>
+
 <% campgrounds.forEach((campground => { %>
 	<div>
 		<p>Name: <%= campground.name %></p>
