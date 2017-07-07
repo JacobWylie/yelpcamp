@@ -8,15 +8,15 @@ app.set('view engine', 'ejs');
 
 	// Temporary campground array before databse
 	let campgrounds = [
-		{name: "Salmon Creek", image: "https://unsplash.it/400/300?image=765"},
-		{name: "Trout Land", image: "https://unsplash.it/400/300?image=786"},
-		{name: "Mountain Place", image: "https://unsplash.it/400/300?image=770"},
-		{name: "Salmon Creek", image: "https://unsplash.it/400/300?image=765"},
-		{name: "Trout Land", image: "https://unsplash.it/400/300?image=786"},
-		{name: "Mountain Place", image: "https://unsplash.it/400/300?image=770"},
-		{name: "Salmon Creek", image: "https://unsplash.it/400/300?image=765"},
-		{name: "Trout Land", image: "https://unsplash.it/400/300?image=786"},
-		{name: "Mountain Place", image: "https://unsplash.it/400/300?image=770"}
+		{name: "Salmon Creek", description: "lorem ipsum...", image: "https://unsplash.it/400/300?image=765"},
+		{name: "Trout Land", description: "lorem ipsum...", image: "https://unsplash.it/400/300?image=786"},
+		{name: "Mountain Place", description: "lorem ipsum...", image: "https://unsplash.it/400/300?image=770"},
+		{name: "Salmon Creek", description: "lorem ipsum...", image: "https://unsplash.it/400/300?image=765"},
+		{name: "Trout Land", description: "lorem ipsum...", image: "https://unsplash.it/400/300?image=786"},
+		{name: "Mountain Place", description: "lorem ipsum...", image: "https://unsplash.it/400/300?image=770"},
+		{name: "Salmon Creek", description: "lorem ipsum...", image: "https://unsplash.it/400/300?image=765"},
+		{name: "Trout Land", description: "lorem ipsum...", image: "https://unsplash.it/400/300?image=786"},
+		{name: "Mountain Place", description: "lorem ipsum...", image: "https://unsplash.it/400/300?image=770"}
 	];
 
 
@@ -43,7 +43,8 @@ app.post('/campgrounds', (req, res) => {
 	// get data from form and add to campgrounds array
 	let name = req.body.name;
 	let image = req.body.image;
-	let newCampground = {name: name, image: image};
+	let description = req.body.description;
+	let newCampground = {name: name, description: description, image: image};
 	campgrounds.push(newCampground);
 	//redirect back to campgrounds page
 	res.redirect('/campgrounds')
