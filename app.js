@@ -3,7 +3,7 @@ const express    = require('express'),
 	  bodyParser = require('body-parser'),
 	  mongoose   = require('mongoose');
 
-// Use yelpcamp database 
+// Use local database 
 mongoose.connect('mongodb://localhost/yelpcamp', {useMongoClient: true});
 // Parse incoming request bodies in a middleware before your handlers, 
 // available under the req.body property.
@@ -23,7 +23,7 @@ let campgroundSchema = new mongoose.Schema({
 const Campground = mongoose.model('Campground', campgroundSchema);
 
 
-// Home Route
+// Landing page route
 app.get('/', (req, res) => {
 	res.render('landing');
 })
