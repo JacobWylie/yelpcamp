@@ -2,26 +2,28 @@
 
 <div class="container">
 	<div class="row justify-content-center">
-		<h1 class="text-center my-4 new-campground-heading col-12">Submit a New Campground</h1>
+		<h1 class="text-center mt-5 mb-4 new-campground-heading col-12">Submit a New Campground</h1>
 
 		<form class="new-campground-form mt-2 col-md-8" action="/campgrounds" method="POST">
 			<div class="form-group newCampNameForm">
-				<label for="name">Name of the campground</label>
+				<label for="name">Name of the campground:</label>
 				<input class="form-control" id="name" type="text" name="name">
 			</div>
 			<div class="form-group newCampSummary">
-	    		<label for="description">A short summary of your camping experience</label>
+	    		<label for="description">A short summary of your camping experience:</label>
 	    		<textarea class="form-control" id="description" name="description" rows="3"></textarea>
 	  		</div>
 	  		<div class="form-group newCampImage">
-	  			<label for="image">Enter an Image URL</label>
+	  			<label for="image">Enter an Image URL:</label>
 				<input class="form-control" id="image" type="text" name="image">
 			</div>
-			<button class="btn btn-primary submit" type="submit">Submit</button>
+			<button class="btn btn-primary btn-block submit" type="submit">Submit</button>
+			<a href="/" class="btn btn-link btn-sm mt-2" role="button">Go Back</a>
 		</form>
+
 	</div>
 </div>
 
+<script type="text/javascript" src="/scripts/newCampForm.js"></script>
 <% include partials/footer %>
 
-<script type="text/javascript" src="/scripts/newCampForm.js"></script>

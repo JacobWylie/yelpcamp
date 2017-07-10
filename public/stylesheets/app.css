@@ -56,7 +56,8 @@
 	font-size: 14px;
 }
 
-.new-campground-form button {
+.new-campground-form button,
+.new-campground-form a {
 	font-size: 14px;
 	padding: 6px;
 	cursor: pointer;
