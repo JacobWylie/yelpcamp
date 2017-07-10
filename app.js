@@ -1,27 +1,26 @@
-const express = require('express'),
-	  app = express(),
-	  bodyParser = require('body-parser');
+const express    = require('express'),
+	  app        = express(),
+	  bodyParser = require('body-parser'),
+	  mongoose   = require('mongoose');
 
+// Use yelpcamp database 
+mongoose.connect('mongodb://localhost/yelpcamp', {useMongoClient: true});
+// Parse incoming request bodies in a middleware before your handlers, 
+// available under the req.body property.
 app.use(bodyParser.urlencoded({extended: true}));
+// Serve static js and css from /public
+app.use(express.static('public'));
 // Use .ejs templating
 app.set('view engine', 'ejs');
 
-	// Temporary campground array before databse
-	let campgrounds = [
-		{name: "Salmon Creek", description: "lorem ipsum...", image: "https://unsplash.it/400/300?image=765"},
-		{name: "Trout Land", description: "lorem ipsum...", image: "https://unsplash.it/400/300?image=786"},
-		{name: "Mountain Place", description: "lorem ipsum...", image: "https://unsplash.it/400/300?image=770"},
-		{name: "Salmon Creek", description: "lorem ipsum...", image: "https://unsplash.it/400/300?image=765"},
-		{name: "Trout Land", description: "lorem ipsum...", image: "https://unsplash.it/400/300?image=786"},
-		{name: "Mountain Place", description: "lorem ipsum...", image: "https://unsplash.it/400/300?image=770"},
-		{name: "Salmon Creek", description: "lorem ipsum...", image: "https://unsplash.it/400/300?image=765"},
-		{name: "Trout Land", description: "lorem ipsum...", image: "https://unsplash.it/400/300?image=786"},
-		{name: "Mountain Place", description: "lorem ipsum...", image: "https://unsplash.it/400/300?image=770"}
-	];
+// Mongoose schema setup
+let campgroundSchema = new mongoose.Schema({
+	name: String,
+	description: String,
+	image: String
+});
+const Campground = mongoose.model('Campground', campgroundSchema);
 
-
-// Serve static js and css from /public
-app.use(express.static('public'));
 
 // Home Route
 app.get('/', (req, res) => {
@@ -30,7 +29,15 @@ app.get('/', (req, res) => {
 
 // Campgrounds page route
 app.get('/campgrounds', (req, res) => {
-	res.render('campgrounds', {campgrounds: campgrounds});
+	// Get campgrounds from db
+	Campground.find({}, (err, campgrounds) => {
+		if(err) {
+			console.log('error');
+		} else {
+			// render campgrounds to page from db
+			res.render('campgrounds', {campgrounds: campgrounds});
+		}
+	})
 })
 
 // New campground form page route
@@ -45,9 +52,15 @@ app.post('/campgrounds', (req, res) => {
 	let image = req.body.image;
 	let description = req.body.description;
 	let newCampground = {name: name, description: description, image: image};
-	campgrounds.push(newCampground);
-	//redirect back to campgrounds page
-	res.redirect('/campgrounds')
+	// create a new campground and save to db
+	Campground.create(newCampground, (err, newlyCreated) => {
+		if(err) {
+			console.log(err);
+		} else {
+			//redirect back to campgrounds page
+			res.redirect('/campgrounds')
+		}
+	})
 })
 
 // All other routes
@@ -59,3 +72,17 @@ app.get('*', (req,res) => {
 app.listen(3000, () => {
 	console.log('App running on localhost:3000');
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
