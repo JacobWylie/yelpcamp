@@ -17,6 +17,7 @@ app.set('view engine', 'ejs');
 let campgroundSchema = new mongoose.Schema({
 	name: String,
 	description: String,
+	location: String,
 	image: String
 });
 const Campground = mongoose.model('Campground', campgroundSchema);
@@ -24,10 +25,10 @@ const Campground = mongoose.model('Campground', campgroundSchema);
 
 // Home Route
 app.get('/', (req, res) => {
-	res.render('index');
+	res.render('landing');
 })
 
-// Campgrounds page route
+// INDEX - Campgrounds page route
 app.get('/campgrounds', (req, res) => {
 	// Get campgrounds from db
 	Campground.find({}, (err, campgrounds) => {
@@ -35,23 +36,24 @@ app.get('/campgrounds', (req, res) => {
 			console.log('error');
 		} else {
 			// render campgrounds to page from db
-			res.render('campgrounds', {campgrounds: campgrounds});
+			res.render('index', {campgrounds: campgrounds});
 		}
 	})
 })
 
-// New campground form page route
+// NEW - New campground form page route
 app.get('/campgrounds/new', (req, res) => {
-	res.render('new.ejs');
+	res.render('new');
 })
 
-// POST route - new campground to /campgrounds
+// CREATE - Add new campground to /campgrounds
 app.post('/campgrounds', (req, res) => {
 	// get data from form and add to campgrounds array
 	let name = req.body.name;
-	let image = req.body.image;
 	let description = req.body.description;
-	let newCampground = {name: name, description: description, image: image};
+	let location = req.body.location;
+	let image = req.body.image;
+	let newCampground = {name: name, description: description, location: location, image: image};
 	// create a new campground and save to db
 	Campground.create(newCampground, (err, newlyCreated) => {
 		if(err) {
@@ -63,7 +65,20 @@ app.post('/campgrounds', (req, res) => {
 	})
 })
 
-// All other routes
+// SHOW - Display info for individual campground
+app.get('/campgrounds/:id', (req, res) => {
+	// Find campground with provided ID
+	Campground.findById(req.params.id, (err, foundCampground) => {
+		if(err) {
+			console.log(err);
+		} else {
+			// Render show template for selected campground
+			res.render('show', {campground: foundCampground});
+		}
+	})
+})
+
+// All other routes go to error page
 app.get('*', (req,res) => {
 	res.render('error');
 })

@@ -48,6 +48,11 @@
 	max-width: 100%;
 }
 
+.card-block p {
+	font-size: 13px;
+	max-width: 100%;
+}
+
 .new-campground-heading {
 	font-size: 26px;
 }
