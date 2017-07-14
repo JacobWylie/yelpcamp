@@ -2,8 +2,12 @@ const express    = require('express'),
 	  app        = express(),
 	  bodyParser = require('body-parser'),
 	  mongoose   = require('mongoose'),
-	  Campground = require('./models/campground');
+	  Campground = require('./models/campground'),
+	  seedDB 	 = require('./seeds');
 
+
+// Clears the database and populates with stock data for testing
+seedDB();
 // Use local database 
 mongoose.connect('mongodb://localhost/yelpcamp', {useMongoClient: true});
 // Parse incoming request bodies in a middleware before your handlers, 
