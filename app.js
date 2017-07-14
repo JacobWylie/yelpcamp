@@ -1,7 +1,8 @@
 const express    = require('express'),
 	  app        = express(),
 	  bodyParser = require('body-parser'),
-	  mongoose   = require('mongoose');
+	  mongoose   = require('mongoose'),
+	  Campground = require('./models/campground');
 
 // Use local database 
 mongoose.connect('mongodb://localhost/yelpcamp', {useMongoClient: true});
@@ -12,15 +13,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 // Use .ejs templating
 app.set('view engine', 'ejs');
-
-// Mongoose schema setup
-let campgroundSchema = new mongoose.Schema({
-	name: String,
-	description: String,
-	location: String,
-	image: String
-});
-const Campground = mongoose.model('Campground', campgroundSchema);
 
 
 // Landing page route
