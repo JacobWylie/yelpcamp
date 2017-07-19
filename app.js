@@ -20,9 +20,7 @@ app.set('view engine', 'ejs');
 
 
 // Landing page route
-app.get('/', (req, res) => {
-	res.render('landing');
-})
+app.get('/', (req, res) => res.render('landing'));
 
 // INDEX - Campgrounds page route
 app.get('/campgrounds', (req, res) => {
@@ -38,9 +36,7 @@ app.get('/campgrounds', (req, res) => {
 })
 
 // NEW - New campground form page route
-app.get('/campgrounds/new', (req, res) => {
-	res.render('new');
-})
+app.get('/campgrounds/new', (req, res) => res.render('new'));
 
 // CREATE - Add new campground to /campgrounds
 app.post('/campgrounds', (req, res) => {
@@ -56,7 +52,7 @@ app.post('/campgrounds', (req, res) => {
 			console.log(err);
 		} else {
 			//redirect back to campgrounds page
-			res.redirect('/campgrounds')
+			res.redirect('/campgrounds');
 		}
 	})
 })
@@ -64,10 +60,11 @@ app.post('/campgrounds', (req, res) => {
 // SHOW - Display info for individual campground
 app.get('/campgrounds/:id', (req, res) => {
 	// Find campground with provided ID
-	Campground.findById(req.params.id, (err, foundCampground) => {
+	Campground.findById(req.params.id).populate('comments').exec( (err, foundCampground) => {
 		if(err) {
 			console.log(err);
 		} else {
+			console.log(foundCampground)
 			// Render show template for selected campground
 			res.render('show', {campground: foundCampground});
 		}
@@ -75,14 +72,10 @@ app.get('/campgrounds/:id', (req, res) => {
 })
 
 // All other routes go to error page
-app.get('*', (req,res) => {
-	res.render('error');
-})
+app.get('*', (req,res) => res.render('error'));
 
 //local server
-app.listen(3000, () => {
-	console.log('App running on localhost:3000');
-})
+app.listen(3000, () => console.log('App running on localhost:3000'));
 
 
 
