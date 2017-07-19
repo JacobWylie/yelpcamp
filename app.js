@@ -5,9 +5,6 @@ const express    = require('express'),
 	  Campground = require('./models/campground'),
 	  seedDB 	 = require('./seeds');
 
-
-// Clears the database and populates with stock data for testing
-seedDB();
 // Use local database 
 mongoose.connect('mongodb://localhost/yelpcamp', {useMongoClient: true});
 // Parse incoming request bodies in a middleware before your handlers, 
@@ -18,6 +15,8 @@ app.use(express.static('public'));
 // Use .ejs templating
 app.set('view engine', 'ejs');
 
+// Clears the database and populates with stock data for testing
+seedDB();
 
 // Landing page route
 app.get('/', (req, res) => res.render('landing'));
@@ -30,13 +29,13 @@ app.get('/campgrounds', (req, res) => {
 			console.log('error');
 		} else {
 			// render campgrounds to page from db
-			res.render('index', {campgrounds: campgrounds});
+			res.render('campgrounds/index', {campgrounds: campgrounds});
 		}
 	})
 })
 
 // NEW - New campground form page route
-app.get('/campgrounds/new', (req, res) => res.render('new'));
+app.get('/campgrounds/new', (req, res) => res.render('campgrounds/new'));
 
 // CREATE - Add new campground to /campgrounds
 app.post('/campgrounds', (req, res) => {
@@ -66,16 +65,59 @@ app.get('/campgrounds/:id', (req, res) => {
 		} else {
 			console.log(foundCampground)
 			// Render show template for selected campground
-			res.render('show', {campground: foundCampground});
+			res.render('campgrounds/show', {campground: foundCampground});
 		}
 	})
 })
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//  COMMENTS ROUTES
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+app.get('/campgrounds/:id/comments/new', (req, res) => {
+	// Find campground by ID
+	Campground.findById(req.params.id, (err, foundCampground) => {
+		if(err) {
+			console.log(err);
+		} else {
+			res.render('comments/new', {campground: foundCampground});
+		}
+	})
+	
+})
+
+
+
+
 
 // All other routes go to error page
 app.get('*', (req,res) => res.render('error'));
 
 //local server
 app.listen(3000, () => console.log('App running on localhost:3000'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
