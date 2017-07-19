@@ -3,6 +3,7 @@ const express    = require('express'),
 	  bodyParser = require('body-parser'),
 	  mongoose   = require('mongoose'),
 	  Campground = require('./models/campground'),
+	  Comment    = require('./models/comment'),
 	  seedDB 	 = require('./seeds');
 
 // Use local database 
@@ -86,7 +87,28 @@ app.get('/campgrounds/:id/comments/new', (req, res) => {
 	
 })
 
-
+app.post('/campgrounds/:id/comments', (req, res) => {
+	// Lookup camground by ID
+	Campground.findById(req.params.id, (err, foundCampground) => {
+		if(err) {
+			console.log(err);
+			res.redirect('/campgrounds');
+		} else {
+			// Create new comment
+			Comment.create(req.body.comment, (err, comment) => {
+				if(err) {
+					console.log(err);
+				} else {
+					// connect new comment to campground
+					foundCampground.comments.push(comment);
+					foundCampground.save();
+					// redirect to campground/:id SHOW page
+					res.redirect(`/campgrounds/${foundCampground._id}`);
+				}
+			})
+		}
+	})
+})
 
 
 

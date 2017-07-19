@@ -6,12 +6,14 @@
 
 		<form class="new-campground-form mt-2 col-md-8" action="/campgrounds/<%= campground._id %>/comments" method="POST">
 			<div class="form-group">
-				<label for="comment">Comment:</label>
-				<textarea class="form-control" id="comment" type="text" name="comment"></textarea>
+				<label for="text">Comment:</label>
+				<!-- comment[text] passes infor as object -->
+				<textarea class="form-control" id="text" type="text" name="comment[text]"></textarea>
 			</div>
 	  		<div class="form-group">
 	    		<label for="author">You name:</label>
-	    		<input class="form-control" id="author" name="author"></input>
+	    		<!-- comment[author] passes infor as object -->
+	    		<input class="form-control" id="author" name="comment[author]"></input>
 	  		</div>
 			<button class="btn btn-primary btn-block submit" type="submit">Submit</button>
 			<a href="/campgrounds" class="btn btn-link btn-sm mt-2" role="button">Go Back</a>
