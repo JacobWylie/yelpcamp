@@ -19,12 +19,12 @@
 	<div class="row">
 		<% campgrounds.forEach((campground => { %>
 			<div class="col-md-4 col-sm-6">
-				<div class="card text-center card-outline-primary" style="">
-					<img class="card-img-top" src="<%= campground.image %>" alt="Card image cap">
-					<div class="card-block">
+				<div class="card text-center card-outline-secondary index-card" style="">
+					<img class="card-img-top index-card-img-top" src="<%= campground.image %>" alt="Card image cap">
+					<div class="card-block index-card-block">
 						<h3 class="card-title"><%= campground.name %></h3>
 				    	<p class="card-text"><%= campground.location %></p>
-				    	<a href="/campgrounds/<%= campground._id %>" class="btn btn-success">Explore <%= campground.name %></a>
+				    	<a href="/campgrounds/<%= campground._id %>" class="btn btn-secondary">Explore <%= campground.name %></a>
 					</div> <!-- /card-block -->
 				</div> <!-- /card -->
 			</div> <!-- /col -->

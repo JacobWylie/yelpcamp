@@ -12,7 +12,7 @@ mongoose.connect('mongodb://localhost/yelpcamp', {useMongoClient: true});
 // available under the req.body property.
 app.use(bodyParser.urlencoded({extended: true}));
 // Serve static js and css from /public
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 // Use .ejs templating
 app.set('view engine', 'ejs');
 

@@ -1,3 +1,7 @@
+/****************************/
+/* UNIVERSAL STYLES */
+/****************************/
+
 .site-name {
 	font-size: 22px;
 }
@@ -34,24 +38,38 @@
 	max-width: 100px;
 }
 
-.card {
+/****************************/
+/* INDEX */
+/****************************/
+
+.index-card {
 	margin-bottom: 25px;
 }
 
-.card-img-top {
+.index-card-img-top {
 	width: 100%;
 
 }
 
-.card-block a {
+.index-card-block a {
 	font-size: 11px;
 	max-width: 100%;
 }
 
-.card-block p {
+.index-card-block p {
 	font-size: 13px;
 	max-width: 100%;
 }
+
+/****************************/
+/* SHOW */
+/****************************/
+
+
+
+/****************************/
+/* NEW CAMPGROUND FORM */
+/****************************/
 
 .new-campground-heading {
 	font-size: 26px;
@@ -72,6 +90,11 @@
 .form-group textarea {
 	font-size: 12px;
 }
+
+
+
+
+
 
 
 /* Fixes responsive navbar centering in xs */
