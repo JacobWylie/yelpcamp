@@ -22,6 +22,19 @@ app.set('view engine', 'ejs');
 // Clears the database and populates with stock data for testing
 seedDB();
 
+// Passport JS Configuration
+app.use(require('express-session')({
+	secret: 'Check yourself before you wreck yourself',
+	resave: false,
+	saveUninitialized: false
+}))
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
 // Landing page route
 app.get('/', (req, res) => res.render('landing'));
 
@@ -37,6 +50,10 @@ app.get('/campgrounds', (req, res) => {
 		}
 	})
 })
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//  MAIN ROUTES
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // NEW - New campground form page route
 app.get('/campgrounds/new', (req, res) => res.render('campgrounds/new'));
@@ -112,6 +129,29 @@ app.post('/campgrounds/:id/comments', (req, res) => {
 		}
 	})
 })
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//  USER AUTHORIZATION ROUTES
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Show register form
+app.get('/register', (req, res) => {
+	res.render('register');
+});
+
+// Handles sign up logic
+app.post('/register', (req, res) => {
+	let newUser = new User({username: req.body.username});
+	User.register(newUser, req.body.password, (err, user) => {
+		if(err) {
+			console.log(err);
+			return res.render('register');
+		}
+		passport.authenticate('local')(req, res, () => {
+			res.redirect('/campgrounds');
+		})
+	});
+});
 
 
 
