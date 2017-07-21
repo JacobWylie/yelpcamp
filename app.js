@@ -131,7 +131,7 @@ app.post('/campgrounds/:id/comments', (req, res) => {
 })
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//  USER AUTHORIZATION ROUTES
+//  USER SIGN UP ROUTES
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // Show register form
@@ -152,6 +152,26 @@ app.post('/register', (req, res) => {
 		})
 	});
 });
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//  USER LOGIN ROUTES
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Show login form
+app.get('/login', (req, res) => {
+	res.render('login');
+})
+
+// Handles login logic
+app.post('/login', passport.authenticate('local', 
+	{
+		successRedirect: '/campgrounds',
+		failureRedirect: '/login'
+	}), (req, res) => {
+})
+
+
+
 
 
 
