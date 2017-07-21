@@ -84,7 +84,6 @@ app.get('/campgrounds/:id', (req, res) => {
 		if(err) {
 			console.log(err);
 		} else {
-			console.log(foundCampground)
 			// Render show template for selected campground
 			res.render('campgrounds/show', {campground: foundCampground});
 		}
@@ -95,7 +94,7 @@ app.get('/campgrounds/:id', (req, res) => {
 //  COMMENTS ROUTES
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-app.get('/campgrounds/:id/comments/new', (req, res) => {
+app.get('/campgrounds/:id/comments/new', isLoggedIn, (req, res) => {
 	// Find campground by ID
 	Campground.findById(req.params.id, (err, foundCampground) => {
 		if(err) {
@@ -107,7 +106,7 @@ app.get('/campgrounds/:id/comments/new', (req, res) => {
 	
 })
 
-app.post('/campgrounds/:id/comments', (req, res) => {
+app.post('/campgrounds/:id/comments', isLoggedIn, (req, res) => {
 	// Lookup camground by ID
 	Campground.findById(req.params.id, (err, foundCampground) => {
 		if(err) {
@@ -170,9 +169,27 @@ app.post('/login', passport.authenticate('local',
 	}), (req, res) => {
 })
 
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//  USER LOGOUT ROUTES
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+app.get('/logout', (req, res) => {
+	req.logout();
+	res.redirect('/campgrounds');
+})
 
 
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//  MIDDLEWARE
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+// Check if a user is logged in
+function isLoggedIn(req, res, next) {
+	if(req.isAuthenticated()) {
+		return next();
+	}
+	res.redirect('/login');
+}
 
 
 // All other routes go to error page

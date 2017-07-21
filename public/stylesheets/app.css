@@ -12,25 +12,27 @@
 }
 
 .navbar form input,
-.navbar form button {
+.navbar form a {
 	padding: 7px;
 	font-size: 11px;
 	transition: all .35s ease-in-out;
 }
 
-.navbar form button.btn-outline-info {
+.navbar form a.btn-outline-info {
 	border-right: none;
-	border-radius: 0;
-	border-top-left-radius: 10%;
-	border-bottom-left-radius: 10%;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
 	cursor: pointer;
 }
 
-.navbar form button.btn-outline-success {
+.navbar form a.btn-outline-success {
 	border-left: none;
-	border-radius: 0;
-	border-top-right-radius: 10%;
-	border-bottom-right-radius: 10%;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	cursor: pointer;
+}
+
+.navbar form a.btn-outline-warning {
 	cursor: pointer;
 }
 
