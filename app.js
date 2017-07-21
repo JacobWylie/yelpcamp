@@ -30,7 +30,7 @@ app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 
 // Clears the database and populates with stock data for testing
-seedDB();
+// seedDB();
 
 // Passport JS Configuration
 app.use(require('express-session')({

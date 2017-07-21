@@ -47,34 +47,34 @@ const seedDB = () => {
 		}
 		console.log('removed campgrounds');
 		// Add a few campgrounds to DB
-		data.forEach( seed => {
+		// data.forEach( seed => {
 			// Adds new campground from 'data'
-			Campground.create(seed, (err, campground) => {
-				if(err) {
-					console.log(err)
-				} else {
-					console.log('added campground');
-					// Creates a comment
-					Comment.create(
-						{
-							text: 'This place is great, but I wish there was internet.',
-							author: 'Homer'
-						}, (err, comment) => {
-							if(err) {
-								console.log(err)
-							} else {
-								campground.comments.push(comment);
-								campground.save();
-								console.log('create new comment')
-							}
+			// Campground.create(seed, (err, campground) => {
+			// 	if(err) {
+			// 		console.log(err)
+			// 	} else {
+			// 		console.log('added campground');
+			// 		// Creates a comment
+			// 		Comment.create(
+			// 			{
+			// 				text: 'This place is great, but I wish there was internet.',
+			// 				author: 'Homer'
+			// 			}, (err, comment) => {
+			// 				if(err) {
+			// 					console.log(err)
+			// 				} else {
+			// 					campground.comments.push(comment);
+			// 					campground.save();
+			// 					console.log('create new comment')
+			// 				}
 							
-						}
-					)	
-				}
-			})
+			// 			}
+			// 		)	
+			// 	}
+			// })
 			
 			
-		})
+		// })
 	})
 	// Add a few comments to each campground
 }
