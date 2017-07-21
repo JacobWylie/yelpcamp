@@ -34,6 +34,11 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+// This will pass currentUser object/data to every route
+app.use(function(req, res, next) {
+	res.locals.currentUser = req.user;
+	next();
+});
 
 // Landing page route
 app.get('/', (req, res) => res.render('landing'));
@@ -46,7 +51,13 @@ app.get('/campgrounds', (req, res) => {
 			console.log('error');
 		} else {
 			// render campgrounds to page from db
-			res.render('campgrounds/index', {campgrounds: campgrounds});
+			res.render('campgrounds/index', {
+				// pass campgrounds to page
+				campgrounds: campgrounds,
+				// pass user data for current logged on user
+				// added to all routes with middleware 
+				// currentUser: req.user
+			});
 		}
 	})
 })
