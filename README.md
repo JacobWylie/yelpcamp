@@ -15,9 +15,10 @@
 <li>Add Landing Page</li>
 <li>Add Campgrounds Page that lists all campgrounds</li>
 <li>Each Campground has:</li>
-
-<li>Name</li>
-<li>Image</li>
+	<ol>
+		<li>Name</li>
+		<li>Image</li>
+	</ol>
 </ul>
 
 <h3>Layout and Basic Styling</h3>
@@ -29,8 +30,8 @@
 
 <li>Setup new campground POST route</li>
 <li>Add in body-parser</li>
-Setup route to show form</li>
-Add basic unstyled form</li>
+<li>Setup route to show form</li>
+<li>Add basic unstyled form</li>
 
 <h3>Style the campgrounds page</h3>
 
@@ -73,19 +74,19 @@ Add basic unstyled form</li>
 
 <h3>Comment New/Create</h3>
 
-<li><li>Discuss nested routes</li>
-<li><li>Add the comment new and create routes</li>
-<li><li>Add the new comment form</li>
+<li>Discuss nested routes</li>
+<li>Add the comment new and create routes</li>
+<li>Add the new comment form</li>
 
 <h3>Style Show Page</h3>
 
-<li><li>Add sidebar to show page</li>
-<li><li>Display comments nicely</li>
+<li>Add sidebar to show page</li>
+<li>Display comments nicely</li>
 
 <h3>Finish Styling Show Page</h3>
 
-<li><li>Add public directory</li>
-<li><li>Add custom stylesheet</li>
+<li>Add public directory</li>
+<li>Add custom stylesheet</li>
 
 <h3>Auth Pt. 1 - Add User Model</h3>
 
@@ -100,14 +101,14 @@ Add basic unstyled form</li>
 
 <h3>Auth Pt. 3 - Login</h3>
 
-<li><li>Add login routes</li>
-<li><li>Add login template</li>
+<li>Add login routes</li>
+<li>Add login template</li>
 
 <h3>Auth Pt. 4 - Logout/Navbar</h3>
 
-<li><li>Add logout route</li>
-<li><li>Prevent user from adding a comment if not signed in</li>
-<li><li>Add links to navbar</li>
+<li>Add logout route</li>
+<li>Prevent user from adding a comment if not signed in</li>
+<li>Add links to navbar</li>
 
 <h3>Auth Pt. 5 - Show/Hide Links</h3>
 
