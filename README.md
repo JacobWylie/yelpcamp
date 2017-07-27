@@ -5,7 +5,7 @@
 <img src="http://i.imgur.com/486zTVe.jpg">
 <img src="http://i.imgur.com/sMfsjle.jpg">
 <img src="http://imgur.com/eOGFLTl.png">
-<img src="http://imgur.com/sFcxVMh.png">
+<img src="http://i.imgur.com/nwNhE5F.png">
 <img src="http://i.imgur.com/nrnczLC.jpg">
 <br>
 
