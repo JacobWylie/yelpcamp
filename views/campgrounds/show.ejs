@@ -23,6 +23,10 @@
 					<p class="mt-5">
 						<em>Submitted by: <%= campground.author.username %></em>
 					</p>
+					<a class="btn btn-warning mt-3 editBtn" href="/campgrounds/<%= campground._id %>/edit">Edit Campground Info</a>
+					<form action="/campgrounds/<%= campground._id %>" method="POST" class="deleteForm">
+						<button class="btn btn-danger mt-3 deleteBtn">Delete Campground</button>
+					</form>
 				</div>
 			</div>
 

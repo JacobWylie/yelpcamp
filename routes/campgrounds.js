@@ -79,10 +79,12 @@ router.get('/:id', (req, res) => {
 //  EDIT - Form to edit campground info
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 router.get('/:id/edit', (req, res) => {
+	// Find campground
 	Campground.findById(req.params.id, (err, foundCampground) => {
 		if(err) {
 			res.redirect('/campgrounds');
 		} else {
+			// Passes campground data and loads edit form
 			res.render('campgrounds/edit', {campground: foundCampground});
 		}
 	})
@@ -91,7 +93,24 @@ router.get('/:id/edit', (req, res) => {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //  UPDATE - Push edited campground data to db
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+router.put('/:id', (req, res) => {
+	// Find and update the correct campground in db
+	Campground.findByIdAndUpdate(req.params.id, req.body.campground, (err, updatedCampground) => {
+		if(err) {
+			res.redirect('/campgrounds');
+		} else {
+			// Redirect to show page
+			res.redirect(`/campgrounds/${req.params.id}`);
+		}
+	})
+})
 
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//  DESTROY - Removes campground from db
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+router.delete('/:id', (req, res) => {
+	
+})
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //  MIDDLEWARE
