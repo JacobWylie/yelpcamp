@@ -9,7 +9,7 @@
 <img src="http://i.imgur.com/nrnczLC.jpg">
 <br>
 
-##Initial Setup
+<h3>Initial Setup</h3>
 
 Add Landing Page
 Add Campgrounds Page that lists all campgrounds
@@ -17,99 +17,126 @@ Each Campground has:
 
 Name
 Image
-##Layout and Basic Styling
+
+<h3>Layout and Basic Styling</h3>
 
 Create our header and footer partials
 Add in Bootstrap
-##Creating New Campgrounds
+
+<h3>Creating New Campgrounds</h3>
 
 Setup new campground POST route
 Add in body-parser
 Setup route to show form
 Add basic unstyled form
-##Style the campgrounds page
+
+<h3>Style the campgrounds page</h3>
 
 Add a better header/title
 Make campgrounds display in a grid
-##Style the Navbar and Form
+
+<h3>Style the Navbar and Form</h3>
 
 Add a navbar to all templates
 Style the new campground form
-##Add Mongoose
+
+<h3>Add Mongoose</h3>
 
 Install and configure Mongoose
 Setup campground model
 Use campground model inside of our routes
-##Show Page
+
+<h3>Show Page</h3>
 
 Review the RESTful routes we've seen so far
 Add description to our campground model
 Show db.collection.drop()
 Add a show route/template
-##Refactor Mongoose Code
+
+<h3>Refactor Mongoose Code</h3>
 
 Create a models directory
 Use module.exports
 Require everything correctly!
-##Add Seeds File
+
+<h3>Add Seeds File</h3>
 
 Add a seeds.js file
 Run the seeds file every time the server starts
-##Add the Comment model!
+
+<h3>Add the Comment model!</h3></h3>
 
 Make our errors go away!
 Display comments on campground show page
-##Comment New/Create
+
+<h3>Comment New/Create</h3>
 
 Discuss nested routes
 Add the comment new and create routes
 Add the new comment form
-##Style Show Page
+
+<h3>Style Show Page</h3>
 
 Add sidebar to show page
 Display comments nicely
-##Finish Styling Show Page
+
+<h3>Finish Styling Show Page</h3>
 
 Add public directory
 Add custom stylesheet
-##Auth Pt. 1 - Add User Model
+
+<h3>Auth Pt. 1 - Add User Model</h3>
 
 Install all packages needed for auth
 Define User model
-##Auth Pt. 2 - Register
+
+<h3>Auth Pt. 2 - Register</h3>
 
 Configure Passport
 Add register routes
 Add register template
-##Auth Pt. 3 - Login
+
+<h3>Auth Pt. 3 - Login</h3>
 
 Add login routes
 Add login template
-##Auth Pt. 4 - Logout/Navbar
+
+<h3>Auth Pt. 4 - Logout/Navbar</h3>
 
 Add logout route
 Prevent user from adding a comment if not signed in
 Add links to navbar
-##Auth Pt. 5 - Show/Hide Links
+
+<h3>Auth Pt. 5 - Show/Hide Links</h3>
 
 Show/hide auth links in navbar
-##Refactor The Routes
+
+<h3>Refactor The Routes</h3>
 
 Use Express router to reoragnize all routes
-##Users + Comments
+
+<h3>Users + Comments</h3>
 
 Associate users and comments
 Save author's name to a comment automatically
-##Users + Campgrounds
+
+<h3>Users + Campgrounds</h3>
 
 Prevent an unauthenticated user from creating a campground
 Save username+id to newly created campground
 RESTFUL ROUTES
 
-name url verb desc.
+<h3>name | url | verb | desc.</h3>
 
-INDEX /dogs GET Display a list of all dogs NEW /dogs/new GET Displays form to make a new dog CREATE /dogs POST Add new dog to DB SHOW /dogs/:id GET Shows info about one dog
+INDEX | /dogs | GET | Display a list of all dogs <br> 
+NEW | /dogs/new | GET | Displays form to make a new dog <br> 
+CREATE | /dogs | POST | Add new dog to DB <br>
+SHOW | /dogs/:id | GET | Shows info about one dog <br>
 
-INDEX /campgrounds NEW /campgrounds/new CREATE /campgrounds SHOW /campgrounds/:id
-
-NEW campgrounds/:id/comments/new GET CREATE campgrounds/:id/comments POST
+<br>
+INDEX | /campgrounds <br>
+NEW | /campgrounds/new <br>
+CREATE | /campgrounds <br>
+SHOW | /campgrounds/:id <br>
+NEW | campgrounds/:id/comments/new <br>
+CREATE campgrounds/:id/comments <br>
