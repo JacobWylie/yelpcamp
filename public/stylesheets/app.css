@@ -66,15 +66,15 @@
 /****************************/
 /* SHOW */
 /****************************/
-.editBtn {
-	display: inline-block;
+.edit-btn {
+
 }
 
-.deleteForm {
-	display: inline-block;
+.delete-form {
+	display: inline;
 }
 
-.deleteBtn {
+.delete-btn {
 	cursor: pointer;
 }
 

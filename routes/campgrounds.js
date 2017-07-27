@@ -109,7 +109,13 @@ router.put('/:id', (req, res) => {
 //  DESTROY - Removes campground from db
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 router.delete('/:id', (req, res) => {
-	
+	Campground.findByIdAndRemove(req.params.id, err => {
+		if(err) {
+			res.redirect('/campgrounds');
+		} else {
+			res.redirect('/campgrounds')
+		}
+	})
 })
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
