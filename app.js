@@ -1,22 +1,23 @@
 // Dependencies
-const express     	= require('express'),
-	  app         	= express(),
-	  bodyParser  	= require('body-parser'),
-	  mongoose    	= require('mongoose'),
-	  passport      = require('passport'),
-	  LocalStrategy = require('passport-local');
+const express     	 = require('express'),
+	  app         	 = express(),
+	  bodyParser  	 = require('body-parser'),
+	  mongoose    	 = require('mongoose'),
+	  passport       = require('passport'),
+	  LocalStrategy  = require('passport-local'),
+	  methodOverride = require('method-override');
 
 // Mongoose Models
 const Campground = require('./models/campground'),
 	  Comment    = require('./models/comment'),
 	  User	 	 = require('./models/user');
 
-// Requiring routes
+// Routes
 const commentRoutes    = require('./routes/comments'),
 	  campgroundRoutes = require('./routes/campgrounds'),
 	  indexRoutes	   = require('./routes/index');
 
-// For testing
+// For testing, clears db and adds a couple generic campgrounds
 const seedDB = require('./seeds');
 
 // Use local database 
@@ -28,9 +29,13 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 // Use .ejs templating
 app.set('view engine', 'ejs');
+// Method override for UPDATE http from request
+app.use(methodOverride('_method'))
+
 
 // Clears the database and populates with stock data for testing
 // seedDB();
+
 
 // Passport JS Configuration
 app.use(require('express-session')({
@@ -51,7 +56,7 @@ app.use(function(req, res, next) {
 });
 
 // Tells our app to use the seperate route files
-// Appending route prefix to url
+// Appends route prefix to url
 app.use('/', indexRoutes);
 app.use('/campgrounds/:id/comments', commentRoutes);
 app.use('/campgrounds', campgroundRoutes);

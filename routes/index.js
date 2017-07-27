@@ -1,7 +1,7 @@
 const express  = require('express'),
 	  router   = express.Router(),
 	  passport = require('passport'),
-	  User 	   = require('../models/comment');
+	  User 	   = require('../models/user');
 
 // ROOT Route
 router.get('/', (req, res) => res.render('landing'));
