@@ -2,8 +2,9 @@ const express = require('express'),
 	  router  = express.Router(),
 	  Campground = require('../models/campground');
 
-
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // INDEX - Campgrounds page route
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 router.get('/', (req, res) => {
 	// Get campgrounds from db
 	Campground.find({}, (err, campgrounds) => {
@@ -22,17 +23,32 @@ router.get('/', (req, res) => {
 	})
 })
 
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // NEW - New campground form page route
-router.get('/new', (req, res) => res.render('campgrounds/new'));
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+router.get('/new', isLoggedIn, (req, res) => res.render('campgrounds/new'));
 
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // CREATE - Add new campground to /campgrounds
-router.post('/', (req, res) => {
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+router.post('/', isLoggedIn, (req, res) => {
 	// get data from form and add to campgrounds array
 	let name = req.body.name;
 	let description = req.body.description;
 	let location = req.body.location;
 	let image = req.body.image;
-	let newCampground = {name: name, description: description, location: location, image: image};
+	let author = {
+		id: req.user._id,
+		username: req.user.username
+	}
+	// new campground object
+	let newCampground = {
+		name: name, 
+		description: description, 
+		location: location, 
+		image: image, 
+		author: author
+	};
 	// create a new campground and save to db
 	Campground.create(newCampground, (err, newlyCreated) => {
 		if(err) {
@@ -44,7 +60,9 @@ router.post('/', (req, res) => {
 	})
 })
 
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // SHOW - Display info for individual campground
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 router.get('/:id', (req, res) => {
 	// Find campground with provided ID
 	Campground.findById(req.params.id).populate('comments').exec( (err, foundCampground) => {
@@ -56,6 +74,19 @@ router.get('/:id', (req, res) => {
 		}
 	})
 })
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//  MIDDLEWARE
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Check if a user is logged in
+function isLoggedIn(req, res, next) {
+	if(req.isAuthenticated()) {
+		return next();
+	}
+	res.redirect('/login');
+}
+
 
 module.exports = router;
 
