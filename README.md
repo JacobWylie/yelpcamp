@@ -127,7 +127,50 @@
 
 <li>Prevent an unauthenticated user from creating a campground</li>
 <li>Save username+id to newly created campground</li>
-<li>RESTFUL ROUTES</li>
+
+<h3>Editing Campgrounds</h3>
+
+<li>Add Method-Override</li>
+<li>Add Edit Route for Campgrounds</li>
+<li>Add Link to Edit Page</li>
+<li>Add Update Route</li>
+
+<h3>Deleting Campgrounds
+
+<li>Add Destroy Route</li>
+<li>Add Delete button</li>
+
+<h3>Authorization Part 1: Campgrounds</h3>
+
+<li>User can only edit his/her campgrounds</li>
+<li>User can only delete his/her campgrounds</li>
+<li>Hide/Show edit and delete buttons</li>
+
+<h3>Editing Comments</h3>
+
+<li>Add Edit route for comments</li>
+<li>Add Edit button</li>
+<li>Add Update route</li>
+
+<h3>Deleting Comments</h3>
+
+<li>Add Destroy route</li>
+<li>Add Delete button</li>
+
+<h3>Authorization Part 2: Comments</h3>
+
+<li>User can only edit his/her comments</li>
+<li>User can only delete his/her comments</li>
+<li>Hide/Show edit and delete buttons</li>
+<li>Refactor Middleware</li>
+
+<h3>Adding in Flash!</h3>
+
+<li>Demo working version</li>
+<li>Install and configure connect-flash</li>
+<li>Add bootstrap alerts to header</li>
+
+<h2>RESTFUL ROUTES</h2>
 
 <h3>name | url | verb | desc.</h3>
 
