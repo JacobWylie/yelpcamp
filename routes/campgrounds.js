@@ -89,7 +89,7 @@ router.get('/:id/edit', checkCampgroundOwnership, (req, res) => {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //  UPDATE - Push edited campground data to db
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-router.put('/:id', (req, res) => {
+router.put('/:id', checkCampgroundOwnership, (req, res) => {
 	// Find and update the correct campground in db
 	Campground.findByIdAndUpdate(req.params.id, req.body.campground, (err, updatedCampground) => {
 		if(err) {
@@ -104,7 +104,7 @@ router.put('/:id', (req, res) => {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //  DESTROY - Removes campground from db
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-router.delete('/:id', (req, res) => {
+router.delete('/:id', checkCampgroundOwnership, (req, res) => {
 	Campground.findByIdAndRemove(req.params.id, err => {
 		if(err) {
 			res.redirect('/campgrounds');
@@ -147,8 +147,6 @@ function checkCampgroundOwnership(req, res, next) {
 		res.redirect('back');
 	}
 }	
-
-
 
 
 

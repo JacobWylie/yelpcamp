@@ -23,10 +23,13 @@
 					<p class="mt-5">
 						<em>Submitted by: <%= campground.author.username %></em>
 					</p>
-					<a class="btn btn-warning mt-3 edit-btn" href="/campgrounds/<%= campground._id %>/edit">Edit Campground Info</a>
-					<form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST" class="delete-form">
-						<button class="btn btn-danger mt-3 delete-btn">Delete Campground</button>
-					</form>
+					<!-- Hides/Shows buttons if campground belongs to currentUser -->
+					<% if(currentUser && campground.author.id.equals(currentUser._id)) { %>
+						<a class="btn btn-warning mt-3 edit-btn" href="/campgrounds/<%= campground._id %>/edit">Edit Campground Info</a>
+						<form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST" class="delete-form">
+							<button class="btn btn-danger mt-3 delete-btn">Delete Campground</button>
+						</form>
+					<% } %>
 				</div>
 			</div>
 
