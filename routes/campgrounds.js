@@ -78,15 +78,11 @@ router.get('/:id', (req, res) => {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //  EDIT - Form to edit campground info
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-router.get('/:id/edit', (req, res) => {
-	// Find campground
+router.get('/:id/edit', checkCampgroundOwnership, (req, res) => {
+	// Find the specific campground
 	Campground.findById(req.params.id, (err, foundCampground) => {
-		if(err) {
-			res.redirect('/campgrounds');
-		} else {
-			// Passes campground data and loads edit form
-			res.render('campgrounds/edit', {campground: foundCampground});
-		}
+		// Load edit form and passes campground information to form
+		res.render('campgrounds/edit', {campground: foundCampground});
 	})
 })
 
@@ -129,6 +125,31 @@ function isLoggedIn(req, res, next) {
 	}
 	res.redirect('/login');
 }
+
+// Check to see if user has permissions for campground routes
+function checkCampgroundOwnership(req, res, next) {
+	// Is User logged in
+	if(req.isAuthenticated()) {		
+		// Find campground
+		Campground.findById(req.params.id, (err, foundCampground) => {
+			if(err) {
+				res.redirect('back');
+			} else {
+				// Does user own campground
+				if(foundCampground.author.id.equals(req.user._id)) {
+					next()
+				} else {
+					res.redirect('back');
+				}
+			}
+		})
+	} else {
+		res.redirect('back');
+	}
+}	
+
+
+
 
 
 module.exports = router;
