@@ -135,7 +135,7 @@
 <li>Add Link to Edit Page</li>
 <li>Add Update Route</li>
 
-<h3>Deleting Campgrounds
+<h3>Deleting Campgrounds</h3>
 
 <li>Add Destroy Route</li>
 <li>Add Delete button</li>

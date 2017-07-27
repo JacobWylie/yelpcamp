@@ -45,7 +45,10 @@
 							<div class="col-md-12">
 								<span class="float-right">10 days ago</span>
 								<p class="font-weight-bold"> <%= comment.author.username %> </p>
-								<p class="card-text mb-5"><%= comment.text %></p>
+								<p class="card-text mb-2"><%= comment.text %></p>
+								<a class="btn btn-sm btn-warning mb-4" href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit">
+									Edit Comment
+								</a>
 							</div>
 						</div>
 					<% }) %>

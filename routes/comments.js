@@ -6,7 +6,9 @@ const express 	 = require('express'),
 	  Comment 	 = require('../models/comment');
 
 
-// Comments New
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// NEW - comment form page route
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 router.get('/new', isLoggedIn, (req, res) => {
 	// Find campground by ID
 	Campground.findById(req.params.id, (err, foundCampground) => {
@@ -19,7 +21,9 @@ router.get('/new', isLoggedIn, (req, res) => {
 	
 })
 
-// Comments Create
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// CREATE - Sends new comment to db and displays on page
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 router.post('/', isLoggedIn, (req, res) => {
 	// Lookup camground by ID
 	Campground.findById(req.params.id, (err, foundCampground) => {
@@ -49,6 +53,33 @@ router.post('/', isLoggedIn, (req, res) => {
 })
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//  EDIT - Show form to edit comment
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+router.get('/:comment_id/edit', (req, res) => {
+	Comment.findById(req.params.comment_id, (err, foundComment) => {
+		if(err) {
+			res.redirect('back');
+		} else {
+			res.render('comments/edit', {campground_id: req.params.id, comment: foundComment});
+		}
+	})
+})
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//  UPDATE - Changes comment
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+router.put('/:comment_id', (req, res) => {
+	Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, (err, updatedComments) => {
+		if(err) {
+			res.redirect('back');
+		} else {
+			res.redirect(`/campgrounds/${req.params.id}`)
+		}
+	})	
+})
+
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //  MIDDLEWARE
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -61,3 +92,26 @@ function isLoggedIn(req, res, next) {
 }
 
 module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
