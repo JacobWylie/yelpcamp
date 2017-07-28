@@ -1,6 +1,13 @@
 /****************************/
 /* UNIVERSAL STYLES */
 /****************************/
+body, wrapper {
+	min-height: 100vh;
+}
+
+.main {
+	flex: 1;
+}
 
 .site-name {
 	font-size: 22px;
@@ -38,6 +45,12 @@
 
 .navbar form input {
 	max-width: 100px;
+}
+
+.footer-text {
+	font-size: 12px;
+	margin-top: -5px;
+	padding-bottom: 0px;
 }
 
 /****************************/
@@ -88,25 +101,38 @@
 }
 
 .new-campground-form {
-	font-size: 14px;
+	font-size: 16px;
 }
 
 .new-campground-form button,
 .new-campground-form a {
-	font-size: 14px;
-	padding: 6px;
+	font-size: 16px;
+	padding: 8px;
 	cursor: pointer;
 }
 
 .form-group input,
 .form-group textarea {
-	font-size: 12px;
+	font-size: 16px;
 }
 
+/****************************/
+/* LOGIN & SIGNUP FORM */
+/****************************/
+.login-form {
+	width: 60%;
+	margin: 0 auto;
+}
 
+.login-btn {
+	padding: 12px;
+	cursor: pointer;
+	width: 60%;
+}
 
-
-
+.goback {
+	margin-left: 20%;
+}
 
 
 /* Fixes responsive navbar centering in xs */

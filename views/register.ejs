@@ -1,11 +1,18 @@
 <% include ./partials/header %>
 
-<h1>Sign Up</h1>
+	<h1 class="text-center mt-3">Sign Up for a New Account</h1>
 
-<form action='/register' method="POST">
-	<input type="text" name="username" placeholder="username">
-	<input type="password" name="password" placeholder="password">
-	<input type="submit" name="">
-</form>
+	<form class="text-center login-form mt-5 mb-2" action='/register' method="POST">
+		<div class="form-group">
+			<input class="form-control" type="text" name="username" placeholder="username">
+		</div>
+		<div class="form-group">
+			<input class="form-control" type="password" name="password" placeholder="password">
+		</div>
+		<div>
+			<button class="btn btn-lg btn-primary mt-3 login-btn" type="submit" name="">Register</button>
+		</div>
+	</form>
+	<a class="goback" href="/campgrounds">Go Back</a>
 
 <% include ./partials/footer %>

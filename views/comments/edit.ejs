@@ -1,6 +1,5 @@
 <% include ../partials/header %>
 
-<div class="container">
 	<div class="row justify-content-center">
 		<h1 class="text-center mb-4 new-campground-heading col-12">Edit Comment</h1>
 		<form class="new-campground-form mt-2 col-md-8" action="/campgrounds/<%= campground_id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
@@ -14,6 +13,5 @@
 		</form>
 
 	</div>
-</div>
 
 <% include ../partials/footer %>
