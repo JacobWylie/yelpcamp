@@ -55,7 +55,7 @@ router.post('/', isLoggedIn, (req, res) => {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //  EDIT - Show form to edit comment
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-router.get('/:comment_id/edit', (req, res) => {
+router.get('/:comment_id/edit', checkCommentOwnership, (req, res) => {
 	Comment.findById(req.params.comment_id, (err, foundComment) => {
 		if(err) {
 			res.redirect('back');
@@ -68,7 +68,7 @@ router.get('/:comment_id/edit', (req, res) => {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //  UPDATE - Changes comment
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-router.put('/:comment_id', (req, res) => {
+router.put('/:comment_id', checkCommentOwnership, (req, res) => {
 	Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, (err, updatedComments) => {
 		if(err) {
 			res.redirect('back');
