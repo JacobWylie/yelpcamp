@@ -1,7 +1,7 @@
 const express = require('express'),
 	  router  = express.Router(),
 	  Campground = require('../models/campground'),
-	  middleware = require('../middleware/index.js');
+	  middleware = require('../middleware');
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // INDEX - Campgrounds page route

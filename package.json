@@ -18,6 +18,7 @@
   "homepage": "https://github.com/JacobWylie/yelpcamp#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
+    "connect-flash": "^0.1.1",
     "ejs": "^2.5.6",
     "express": "^4.15.3",
     "method-override": "^2.3.9",

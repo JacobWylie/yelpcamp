@@ -1,5 +1,4 @@
-const express 	 = require('express'),
-	  Campground = require('../models/campground'),
+const Campground = require('../models/campground'),
 	  Comment 	 = require('../models/comment');
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -14,6 +13,7 @@ middlewareObj.isLoggedIn = (req, res, next) => {
 	if(req.isAuthenticated()) {
 		return next();
 	}
+	req.flash('error', 'Please Login First');
 	res.redirect('/login');
 }
 
