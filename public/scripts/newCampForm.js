@@ -2,6 +2,8 @@ const newCampNameForm = document.querySelector('.newCampNameForm');
 const newCampName = document.querySelector('input[id="name"]');
 const newCampLocationForm = document.querySelector('.newCampLocation');
 const newCampLocation = document.querySelector('input[id="location"]');
+const newCampPriceForm = document.querySelector('.newCampPrice');
+const newCampPrice = document.querySelector('input[id="price"]');
 const newCampSummaryForm = document.querySelector('.newCampSummary');
 const newCampSummary = document.querySelector('textarea[id="description"]');
 const newCampImageForm = document.querySelector('.newCampImage');
@@ -15,6 +17,7 @@ submitButton.disabled = true;
 const checkForm = () => {
 	if (newCampNameForm.classList.contains('has-success') &&
 		newCampLocationForm.classList.contains('has-success') && 
+		newCampPriceForm.classList.contains('has-success') && 
 		newCampSummaryForm.classList.contains('has-success') && 
 		newCampImageForm.classList.contains('has-success')) {
 		submitButton.disabled = false;
@@ -40,6 +43,17 @@ newCampLocation.addEventListener('keyup', function() {
 		this.classList.add('form-control-success');
 	} else {
 		newCampLocationForm.classList.remove('has-success');
+		this.classList.remove('form-control-success');
+	}
+	checkForm();
+})
+
+newCampPrice.addEventListener('keyup', function() {
+	if (this.value !== '') {
+		newCampPriceForm.classList.add('has-success');
+		this.classList.add('form-control-success');
+	} else {
+		newCampPriceForm.classList.remove('has-success');
 		this.classList.remove('form-control-success');
 	}
 	checkForm();
