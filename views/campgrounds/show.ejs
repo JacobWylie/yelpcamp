@@ -27,7 +27,7 @@
 					<% if(currentUser && campground.author.id.equals(currentUser._id)) { %>
 						<a class="btn btn-warning mt-3 edit-btn" href="/campgrounds/<%= campground._id %>/edit">Edit Campground Info</a>
 						<form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST" class="delete-form">
-							<button class="btn btn-danger mt-3 delete-btn">Delete Campground</button>
+							<input type="submit" class="btn btn-danger mt-3 delete-btn" value="Delete Campground">
 						</form>
 					<% } %>
 				</div>
@@ -39,16 +39,22 @@
 						Add New Comment
 					</a>
 					<h4 class="card-title mb-4">Comments</h4>
-					<hr class="mb-5">
+					<hr class="mb-4">
 					<% campground.comments.forEach( comment => { %>
 						<div class="row">
 							<div class="col-md-12">
 								<span class="float-right">10 days ago</span>
-								<p class="font-weight-bold"> <%= comment.author.username %> </p>
-								<p class="card-text mb-2"><%= comment.text %></p>
-								<a class="btn btn-sm btn-warning mb-4" href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit">
-									Edit Comment
-								</a>
+								<p class="font-weight-bold"> <%= comment.author.username %> says...</p>
+								<p class="card-text mb-3"><%= comment.text %></p>
+								<!-- Hides/Shows buttons if comments belongs to currentUser -->
+								<% if(currentUser && comment.author.id.equals(currentUser.id)) { %>
+									<a class="btn btn-sm btn-warning mt-1 mb-3" href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit">
+										Edit Comment
+									</a>
+									<form action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST" class="delete-form">
+										<input type="submit" class="btn btn-sm btn-danger mt-1 mb-3 delete-btn" value="Delete Comment">
+									</form>
+								<% } %>
 							</div>
 						</div>
 					<% }) %>

@@ -78,6 +78,20 @@ router.put('/:comment_id', (req, res) => {
 	})	
 })
 
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//  DESTROY - Deletes comment
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+router.delete('/:comment_id', checkCommentOwnership, (req, res) => {
+	// Find by id and remove
+	Comment.findByIdAndRemove(req.params.comment_id, err => {
+		if(err) {
+			res.redirect('back');
+		} else {
+			// Back to campground SHOW
+			res.redirect(`/campgrounds/${req.params.id}`)
+		}
+	})
+})
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //  MIDDLEWARE
@@ -89,6 +103,28 @@ function isLoggedIn(req, res, next) {
 		return next();
 	}
 	res.redirect('/login');
+}
+
+// Check to see if user owns comment
+function checkCommentOwnership(req, res, next) {
+	// Is User logged in
+	if(req.isAuthenticated()) {		
+		// Find comment
+		Comment.findById(req.params.comment_id, (err, foundComment) => {
+			if(err) {
+				res.redirect('back');
+			} else {
+				// Does user own comment
+				if(foundComment.author.id.equals(req.user.id)) {
+					next()
+				} else {
+					res.redirect('back');
+				}
+			}
+		})
+	} else {
+		res.redirect('back');
+	}
 }
 
 module.exports = router;
