@@ -11,6 +11,15 @@ body {
 
 #landing-header h1 {
   color: #fff;
+  margin-bottom: 50px;
+  font-size: 3.5em;
+  letter-spacing: .04em;
+}
+
+#landing-header a {
+  font-size: 1.7em;
+  padding: 20px;
+  letter-spacing: .04em;
 }
 
 .slideshow { 
