@@ -10,7 +10,7 @@ const express 	 = require('express'),
 const middlewareObj = {};
 
 // Check if a user is logged in
-middlewareObj.isLoggedIn = function(req, res, next) {
+middlewareObj.isLoggedIn = (req, res, next) => {
 	if(req.isAuthenticated()) {
 		return next();
 	}
@@ -18,7 +18,7 @@ middlewareObj.isLoggedIn = function(req, res, next) {
 }
 
 // Check to see if user has permissions for campground routes
-middlewareObj.checkCampgroundOwnership = function(req, res, next) {
+middlewareObj.checkCampgroundOwnership = (req, res, next) => {
 	// Is User logged in
 	if(req.isAuthenticated()) {		
 		// Find campground
@@ -40,7 +40,7 @@ middlewareObj.checkCampgroundOwnership = function(req, res, next) {
 }	
 
 // Check to see if user owns comment
-middlewareObj.checkCommentOwnership = function(req, res, next) {
+middlewareObj.checkCommentOwnership = (req, res, next) => {
 	// Is User logged in
 	if(req.isAuthenticated()) {		
 		// Find comment
