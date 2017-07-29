@@ -34,6 +34,8 @@ app.set('view engine', 'ejs');
 app.use(methodOverride('_method'))
 // Use flash alerts
 app.use(flash());
+// Use momentJS to track time since creation
+app.locals.moment = require('moment');
 
 // Clears the database and populates with stock data for testing
 // seedDB();
