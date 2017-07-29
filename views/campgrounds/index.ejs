@@ -1,5 +1,9 @@
 <% include ../partials/header %>
 
+	<% if(currentUser && currentUser.isAdmin) { %>
+		<h3>You currently have administrative permissions</h3>
+	<% } %>
+
 	<header class="jumbotron">
 		<div class="container text-center">
 			<h1>Welcome to Campground Reviews!</h1>
