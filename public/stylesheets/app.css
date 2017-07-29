@@ -79,8 +79,8 @@ body, wrapper {
 /****************************/
 /* SHOW */
 /****************************/
-.edit-btn {
-
+.camp-description {
+	font-size: 1.1em;
 }
 
 .delete-form {
@@ -89,6 +89,13 @@ body, wrapper {
 
 .delete-btn {
 	cursor: pointer;
+}
+
+#map {
+	margin-top: 20px;
+	height: 400px;
+	width: 100%;
+	border-radius: 5px;
 }
 
 
@@ -125,13 +132,14 @@ body, wrapper {
 }
 
 .login-btn {
-	padding: 12px;
+	padding: 10px;
 	cursor: pointer;
-	width: 60%;
 }
 
 .goback {
 	margin-left: 20%;
+	display: block;
+	font-size: .75em;
 }
 
 

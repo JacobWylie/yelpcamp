@@ -2,17 +2,18 @@
 
 	<h1 class="text-center mt-3">Login to Your Account</h1>
 
-	<form class="text-center login-form mt-5 mb-2" action='/login' method="POST">
+	<form class="login-form mt-5 mb-2" action='/login' method="POST">
 		<div class="form-group">
 			<input class="form-control" type="text" name="username" placeholder="username">
 		</div>
 		<div class="form-group">
 			<input class="form-control" type="password" name="password" placeholder="password">
 		</div>
-		<div>
-			<button class="btn btn-lg btn-primary mt-3 login-btn" type="submit" name="">Sign in</button>
+		<div class="">
+			<button class="btn btn-primary mt-1 login-btn" type="submit" name="">Sign in</button>
 		</div>
 	</form>
+	<a class="goback" href="/register">Sign Up</a>
 	<a class="goback" href="/campgrounds">Go Back</a>
 
 <% include ./partials/footer %>

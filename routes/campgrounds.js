@@ -1,7 +1,8 @@
-const express = require('express'),
-	  router  = express.Router(),
+const express    = require('express'),
+	  router     = express.Router(),
 	  Campground = require('../models/campground'),
-	  middleware = require('../middleware');
+	  middleware = require('../middleware'),
+	  geocoder	 = require('geocoder');
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // INDEX - Campgrounds page route
@@ -38,31 +39,38 @@ router.post('/', middleware.isLoggedIn, (req, res) => {
 	let name = req.body.name;
 	let description = req.body.description;
 	let price = req.body.price;
-	let location = req.body.location;
 	let image = req.body.image;
 	let author = {
 		id: req.user._id,
 		username: req.user.username
 	}
-	// new campground object
-	let newCampground = {
-		name: name, 
-		description: description,
-		price: price, 
-		location: location, 
-		image: image, 
-		author: author
-	};
-	// create a new campground and save to db
-	Campground.create(newCampground, (err, newlyCreated) => {
-		if(err) {
-			req.flash('error', "Something went wrong");
-			res.redirect('back');
-		} else {
-			req.flash('success', "You added a new campground!");
-			//redirect back to campgrounds page
-			res.redirect('/campgrounds');
-		}
+	// Enables Google map api to be used
+	geocoder.geocode(req.body.location, (err, data) => {
+		let lat = data.results[0].geometry.location.lat;
+		let lng = data.results[0].geometry.location.lng;
+		let location = data.results[0].formatted_address;
+			// new campground object
+		let newCampground = {
+			name: name, 
+			description: description,
+			price: price,  
+			image: image, 
+			author: author,
+			location: location,
+			lat: lat,
+			lng: lng
+		};
+		// create a new campground and save to db
+		Campground.create(newCampground, (err, newlyCreated) => {
+			if(err) {
+				req.flash('error', "Something went wrong");
+				res.redirect('back');
+			} else {
+				req.flash('success', "You added a new campground!");
+				//redirect back to campgrounds page
+				res.redirect(`/campgrounds/${newlyCreated._id}`);
+			}
+		})
 	})
 })
 
@@ -102,16 +110,35 @@ router.get('/:id/edit', middleware.checkCampgroundOwnership, (req, res) => {
 //  UPDATE - Push edited campground data to db
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 router.put('/:id', middleware.checkCampgroundOwnership, (req, res) => {
-	// Find and update the correct campground in db
-	Campground.findByIdAndUpdate(req.params.id, req.body.campground, (err, updatedCampground) => {
-		if(err) {
-			req.flash('error', "Something went wrong");
-			res.redirect('/campgrounds');
-		} else {
-			req.flash('success', "You updated your campground.")
-			// Redirect to show page
-			res.redirect(`/campgrounds/${req.params.id}`);
+	// Allows Google map api to update data
+	geocoder.geocode(req.body.location, (err, data) => {
+		let lat = data.results[0].geometry.location.lat;
+		let lng = data.results[0].geometry.location.lng;
+		let location = data.results[0].formatted_address;
+		let newData = {
+			name: req.body.name, 
+			description: req.body.description,
+			price: req.body.price,  
+			image: req.body.image, 
+			author: {
+				id: req.user._id,
+				username: req.user.username
+			},
+			location: location,
+			lat: lat,
+			lng: lng
 		}
+		// Find and update the correct campground in db
+		Campground.findByIdAndUpdate(req.params.id, {$set: newData}, (err, updatedCampground) => {
+			if(err) {
+				req.flash('error', "Something went wrong");
+				res.redirect('/campgrounds');
+			} else {
+				req.flash('success', "You updated your campground.")
+				// Redirect to show page
+				res.redirect(`/campgrounds/${req.params.id}`);
+			}
+		})
 	})
 })
 
