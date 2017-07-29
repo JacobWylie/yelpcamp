@@ -7,8 +7,15 @@
 	<header class="jumbotron">
 		<div class="container text-center">
 			<h1>Welcome to Campground Reviews!</h1>
-			<p>View our user-submitted campgrounds from all over the world</p>
+			<h5 class="my-4">View our user-submitted campgrounds from all over the world</h5>
 			<a href="/campgrounds/new" class="btn btn-primary" role="button">Add a new Campground</a>
+			<form class="search-form" action="/campgrounds" method="GET">
+				<div class="row justify-content-center">
+					<input class="col-sm-6 form-control search-input" type="search" name="search" placeholder="Enter keywords...">
+					<input class="col-sm-6 btn btn-info search-btn" type="submit" name="" value="Search">
+				</div>
+			</form>
+			<h6 class="mt-3 mb-0">Search for your favorites!</h6>
 		</div>
 	</header>
 

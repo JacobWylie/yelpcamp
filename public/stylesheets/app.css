@@ -76,6 +76,20 @@ body, wrapper {
 	max-width: 100%;
 }
 
+.search-form {
+	width: ;
+	margin-top: 70px;
+}
+
+.search-input {
+	max-width: 250px;
+}
+
+.search-btn {
+	max-width: 100px;
+	cursor: pointer;
+}
+
 /****************************/
 /* SHOW */
 /****************************/
