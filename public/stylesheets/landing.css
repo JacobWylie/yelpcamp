@@ -17,9 +17,30 @@ body {
 }
 
 #landing-header a {
-  font-size: 1.7em;
-  padding: 20px;
+  font-size: 1.5em;
+  padding: 15px;
   letter-spacing: .04em;
+}
+
+.search-form {
+  margin: 20px auto 20px auto;
+}
+
+.search-header {
+  font-size: 25px;
+  color: white;
+}
+
+.search-input {
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 250px;
+}
+
+.search-btn {
+  margin-top: 10px;
+  width: 200px;
+  cursor: pointer;
 }
 
 .slideshow { 

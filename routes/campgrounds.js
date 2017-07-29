@@ -4,26 +4,62 @@ const express    = require('express'),
 	  middleware = require('../middleware'),
 	  geocoder	 = require('geocoder');
 
+
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // INDEX - Campgrounds page route
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 router.get('/', (req, res) => {
-	// Get campgrounds from db
-	Campground.find({}, (err, campgrounds) => {
-		if(err) {
-			req.flash('error', "Something went wrong");
-			res.redirect('back');
-		} else {
-			// render campgrounds to page from db
-			res.render('campgrounds/index', {
-				// pass campgrounds to page
-				campgrounds: campgrounds,
-				// pass user data for current logged on user
-				// added to all routes with middleware 
-				// currentUser: req.user
-			});
-		}
-	})
+	// If search results are empty
+	let noMatch = null;
+	// Check to see if user submitted a search
+	if(req.query.search) {
+		// Turns search into a regular expression?
+		const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+		// Get campgrounds from db
+		Campground.find({
+			// Searches db campground names for regex/user search
+			name: regex
+		}, (err, campgrounds) => {
+			if(err) {
+				req.flash('error', "Something went wrong");
+				res.redirect('back');
+			} else {
+				// if search returns no results
+				if(campgrounds.length < 1) {
+					noMatch = "No campgrounds were found with your search";
+				}
+				// render campgrounds to page from db
+				res.render('campgrounds/index', {
+					// pass campgrounds to page
+					campgrounds: campgrounds,
+					// if search returns no results pass noMatch through
+					noMatch: noMatch
+					// pass user data for current logged on user
+					// added to all routes with middleware 
+					// currentUser: req.user
+				});
+			}
+		})
+	// or Show all campgrounds
+	} else { 
+		// Get campgrounds from db
+		Campground.find({}, (err, campgrounds) => {
+			if(err) {
+				req.flash('error', "Something went wrong");
+				res.redirect('back');
+			} else {
+				// render campgrounds to page from db
+				res.render('campgrounds/index', {
+					// pass campgrounds to page
+					campgrounds: campgrounds,
+					noMatch: noMatch
+					// pass user data for current logged on user
+					// added to all routes with middleware 
+					// currentUser: req.user
+				});
+			}
+		})
+	}
 })
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -158,6 +194,12 @@ router.delete('/:id', middleware.checkCampgroundOwnership, (req, res) => {
 })
 
 
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//  For mongo db query search
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function escapeRegex(text) {
+	return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+}
 
 
 module.exports = router;
