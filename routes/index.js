@@ -1,7 +1,8 @@
 const express  = require('express'),
 	  router   = express.Router(),
 	  passport = require('passport'),
-	  User 	   = require('../models/user');
+	  User 	   = require('../models/user'),
+	  Campground = require('../models/campground');
 
 // ROOT Route
 router.get('/', (req, res) => res.render('landing'));
@@ -77,12 +78,20 @@ router.get('/logout', (req, res) => {
 
 // Takes you to the users public profile page
 router.get('/users/:id', (req, res) => {
+	// Find the user whos profile was selected
 	User.findById(req.params.id, (err, foundUser) => {
 		if(err) {
 			req.flash('error', 'There was an error finding that user');
 			res.redirect('back');
 		}
-		res.render('users/show', {user: foundUser});
+		// Find campgrounds associated to the user
+		Campground.find().where('author.id').equals(foundUser._id).exec( (err, campgrounds) => {
+			if(err) {
+				req.flash('error', 'There was an error finding that user');
+				res.redirect('back');
+			}
+			res.render('users/show', {user: foundUser, campgrounds: campgrounds});			
+		})
 	})
 })
 

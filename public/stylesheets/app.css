@@ -102,7 +102,7 @@ a.username {
 }
 
 /****************************/
-/* SHOW */
+/* CAMPGROUND SHOW */
 /****************************/
 .camp-description {
 	font-size: 1.1em;
@@ -121,6 +121,19 @@ a.username {
 	height: 400px;
 	width: 100%;
 	border-radius: 5px;
+}
+
+/****************************/
+/* USER PROFILE SHOW */
+/****************************/
+.profile-image {
+	border-radius: 5%;
+}
+
+.user-campground-list {
+	list-style: none;
+	font-size: 20px;
+	margin-left: -10px;
 }
 
 
