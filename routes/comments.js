@@ -41,6 +41,7 @@ router.post('/', middleware.isLoggedIn, (req, res) => {
 					// add username and id to comment
 					comment.author.id = req.user._id;
 					comment.author.username = req.user.username;
+					comment.author.avatar = req.user.avatar;
 					// save comment
 					comment.save()
 					// connect new comment to campground

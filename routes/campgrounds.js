@@ -78,7 +78,8 @@ router.post('/', middleware.isLoggedIn, (req, res) => {
 	let image = req.body.image;
 	let author = {
 		id: req.user._id,
-		username: req.user.username
+		username: req.user.username,
+		avatar: req.user.avatar
 	}
 	// Enables Google map api to be used
 	geocoder.geocode(req.body.location, (err, data) => {
@@ -92,6 +93,7 @@ router.post('/', middleware.isLoggedIn, (req, res) => {
 			price: price,  
 			image: image, 
 			author: author,
+			avatar: req.user.avatar,
 			location: location,
 			lat: lat,
 			lng: lng
@@ -158,7 +160,8 @@ router.put('/:id', middleware.checkCampgroundOwnership, (req, res) => {
 			image: req.body.image, 
 			author: {
 				id: req.user._id,
-				username: req.user.username
+				username: req.user.username,
+				avatar: req.user.avatar
 			},
 			location: location,
 			lat: lat,
@@ -203,6 +206,34 @@ function escapeRegex(text) {
 
 
 module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

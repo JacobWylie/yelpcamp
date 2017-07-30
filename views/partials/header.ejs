@@ -31,7 +31,7 @@
 		    					<a class="btn btn-outline-info my-2 my-sm-0 mr-0" href="/login">LogIn</a>
 		      					<a class="btn btn-outline-success my-2 my-sm-0" href="/register">SignUp</a>
 		    				<% } else { %>
-		    					<p class="my-2 mr-3 my-sm-0">Signed in as <%= currentUser.username %></p>
+		    					<p class="my-2 mr-3 my-sm-0">Signed in as <%= currentUser.username %><img class="avatar" src="<%= currentUser.avatar %>"></p>
 		    					<a class="btn btn-outline-warning my-2 my-sm-0" href="/logout">Logout</a>
 		    				<% } %>
 		    			</form>

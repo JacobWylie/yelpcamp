@@ -9,6 +9,12 @@ body, wrapper {
 	flex: 1;
 }
 
+.avatar {
+	width: 25px;
+	border-radius: 50%;
+	margin: 5px;
+}
+
 .site-name {
 	font-size: 22px;
 }

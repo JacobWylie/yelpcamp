@@ -17,7 +17,12 @@ router.get('/register', (req, res) => {
 
 // Handles sign up logic
 router.post('/register', (req, res) => {
-	let newUser = new User({username: req.body.username});
+	// Build new user object from from data
+	let newUser = new User({
+		username: req.body.username,
+		email: req.body.email,
+		avatar: req.body.avatar
+	});
 	// Check if new user registers with admin code
 	if(req.body.adminCode === 'admin') {
 		newUser.isAdmin = true;
@@ -58,15 +63,46 @@ router.post('/login', passport.authenticate('local',
 //  USER LOGOUT ROUTES
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+// Logs the user out 
 router.get('/logout', (req, res) => {
+	// Passport method
 	req.logout();
 	req.flash('success', 'You are now logged out');
 	res.redirect('back');
 })
 
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//  USER PROFILE PAGE
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Takes you to the users public profile page
+router.get('/users/:id', (req, res) => {
+
+})
+
+
+
 
 
 module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
