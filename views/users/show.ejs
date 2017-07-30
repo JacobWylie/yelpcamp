@@ -7,27 +7,19 @@
     		<h4 class="card-title"><%= user.username %></h4>
     		<p class="card-text">Email: <a href="mailto:<%= user.email %>"><%= user.email %></a></p>
   		</div>
-  		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  		<h5>Bio:</h5>
+  		<p><%= user.bio %></p>
 	</div>
-	<div class="col-md-8 mt-5">
-		<h5>Campgrounds posted by <%= user.username %></h5>
-		<ul>
-		<% campgrounds.forEach( campground => { %>
-			<li class="user-campground-list">
-				- <a href="../campgrounds/<%= campground.id %>"><%= campground.name %></a>
-			</li>
-		<% }) %>
-		</ul>
-		<h5>Comments posted by <%= user.username %></h5>
-		<ul>
-			<li>
-				<a href=""></a>
-			</li>
+	<div class="col-md-7 mt-5 ml-5">
+
+		<h4>Campgrounds posted by <%= user.username %></h4>
+		<% if(campgrounds.length < 1) { %>
+			<h6 class="mt-4 ml-2"><em>No campgrounds submitted yet...</em></h6> 
+		<% } else { %>
+			<% campgrounds.forEach( campground => { %>
+					<p class="user-campground-list"><a href="../campgrounds/<%= campground.id %>"><%= campground.name %></a></p>
+			<% }) %>
+		<% } %>
 		</ul>
 	</div>
 </div>

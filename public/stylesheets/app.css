@@ -10,7 +10,7 @@ body, wrapper {
 }
 
 .avatar {
-	width: 25px;
+	width: 40px;
 	border-radius: 50%;
 	margin: 5px;
 }
@@ -131,9 +131,9 @@ a.username {
 }
 
 .user-campground-list {
-	list-style: none;
 	font-size: 20px;
-	margin-left: -10px;
+	padding: 15px;
+	display: inline-block;
 }
 
 

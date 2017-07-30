@@ -22,7 +22,8 @@ router.post('/register', (req, res) => {
 	let newUser = new User({
 		username: req.body.username,
 		email: req.body.email,
-		avatar: req.body.avatar
+		avatar: req.body.avatar,
+		bio: req.body.bio
 	});
 	// Check if new user registers with admin code
 	if(req.body.adminCode === 'admin') {
