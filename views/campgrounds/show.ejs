@@ -77,7 +77,9 @@
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 8,
         center: center,
-        scrollwheel: false
+        scrollwheel: false,
+        mapTypeId: 'hybrid',
+        labels: true
     });
     var contentString = `
       <strong><%= campground.name %><br />
