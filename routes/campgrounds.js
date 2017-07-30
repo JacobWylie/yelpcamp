@@ -11,6 +11,7 @@ const express    = require('express'),
 router.get('/', (req, res) => {
 	// If search results are empty
 	let noMatch = null;
+	let results = null;
 	// Check to see if user submitted a search
 	if(req.query.search) {
 		// Turns search into a regular expression?
@@ -33,7 +34,8 @@ router.get('/', (req, res) => {
 					// pass campgrounds to page
 					campgrounds: campgrounds,
 					// if search returns no results pass noMatch through
-					noMatch: noMatch
+					noMatch: noMatch,
+					results: `Your search for "${req.query.search}" returned ${campgrounds.length} result(s)...`
 					// pass user data for current logged on user
 					// added to all routes with middleware 
 					// currentUser: req.user
@@ -52,7 +54,8 @@ router.get('/', (req, res) => {
 				res.render('campgrounds/index', {
 					// pass campgrounds to page
 					campgrounds: campgrounds,
-					noMatch: noMatch
+					noMatch: noMatch,
+					results: ''
 					// pass user data for current logged on user
 					// added to all routes with middleware 
 					// currentUser: req.user

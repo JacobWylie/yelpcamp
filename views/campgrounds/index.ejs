@@ -29,9 +29,17 @@
 			<% } %>
 		</div>
 
+		<!-- display Search results -->
+		<div class="col-lg-12 text-center">
+			<% if(results !== undefined) { %>
+				<h6 class="mt-3"><%= results %></h6>
+			<% } %>
+		</div>
+	</div> <!-- /row -->
+
 		<!-- display all campground -->
 		<div class="col-lg-12 text-center">
-			<% if(noMatch == undefined) { %>
+			<% if(noMatch == undefined && results === '') { %>
 				<h3>Our Most Popular Campgrounds</h3>
 			<% } %>
 		</div>
