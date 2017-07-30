@@ -10,7 +10,6 @@ const express    = require('express'),
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 router.get('/', (req, res) => {
 	// If search results are empty
-	let noMatch = null;
 	let results = null;
 	// Check to see if user submitted a search
 	if(req.query.search) {
@@ -25,16 +24,11 @@ router.get('/', (req, res) => {
 				req.flash('error', "Something went wrong");
 				res.redirect('back');
 			} else {
-				// if search returns no results
-				if(campgrounds.length < 1) {
-					noMatch = "No campgrounds were found with your search";
-				}
 				// render campgrounds to page from db
 				res.render('campgrounds/index', {
 					// pass campgrounds to page
 					campgrounds: campgrounds,
 					// if search returns no results pass noMatch through
-					noMatch: noMatch,
 					results: `Your search for "${req.query.search}" returned ${campgrounds.length} result(s)...`
 					// pass user data for current logged on user
 					// added to all routes with middleware 
@@ -54,7 +48,6 @@ router.get('/', (req, res) => {
 				res.render('campgrounds/index', {
 					// pass campgrounds to page
 					campgrounds: campgrounds,
-					noMatch: noMatch,
 					results: ''
 					// pass user data for current logged on user
 					// added to all routes with middleware 
