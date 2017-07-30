@@ -15,8 +15,13 @@ body, wrapper {
 	margin: 5px;
 }
 
+a.username {
+
+}
+
 .site-name {
 	font-size: 22px;
+
 }
 
 .nav-item {

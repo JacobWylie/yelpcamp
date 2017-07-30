@@ -77,7 +77,13 @@ router.get('/logout', (req, res) => {
 
 // Takes you to the users public profile page
 router.get('/users/:id', (req, res) => {
-
+	User.findById(req.params.id, (err, foundUser) => {
+		if(err) {
+			req.flash('error', 'There was an error finding that user');
+			res.redirect('back');
+		}
+		res.render('users/show', {user: foundUser});
+	})
 })
 
 
