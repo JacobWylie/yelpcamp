@@ -13,17 +13,17 @@
 		    			<span class="navbar-toggler-icon"></span>
 		  			</button>
 		  			<a class="navbar-brand" href="/campgrounds">
-	    			<img src="https://cdn3.iconfinder.com/data/icons/travelling-icon-set-ii-part/800/tent-48.png" width="30" height="30" class="d-inline-block align-top mr-1" alt="">
-	    			<span class="site-name">Campground Reviews</span>
+	    			<img src="/img/tent.png" width="30" height="30" class="d-inline-block align-top mr-1" alt="">
+	    			<span class="site-name text-white">Campground Reviews</span>
 	  				</a>
 
 		  			<div class="collapse navbar-collapse ml-3" id="navbarSupportedContent">
 		    			<ul class="navbar-nav mr-auto">
 		      				<li class="nav-item mt-2">
-		        				<a class="nav-link" href="/campgrounds">Campgrounds</a>
+		        				<a class="nav-link text-white" href="/campgrounds">Campgrounds</a>
 		      				</li>
 		      				<li class="nav-item mt-2">
-		        				<a class="nav-link" href="/campgrounds/new">Submit New</a>
+		        				<a class="nav-link text-white" href="/campgrounds/new">Submit New</a>
 		      				</li>
 		    			</ul>
 		    			<form class="form-inline my-2 my-lg-0">
@@ -31,7 +31,7 @@
 		    					<a class="btn btn-outline-info my-2 my-sm-0 mr-0" href="/login">LogIn</a>
 		      					<a class="btn btn-outline-success my-2 my-sm-0" href="/register">SignUp</a>
 		    				<% } else { %>
-		    					<p class="my-2 mr-3 my-sm-0">Signed in as <a class="username" href="/users/<%= currentUser.id %>"><%= currentUser.username %><img class="avatar" src="<%= currentUser.avatar %>"></a></p>
+		    					<p class="my-2 mr-3 my-sm-0 text-white">Signed in as <a class="username text-white" href="/users/<%= currentUser.id %>"><%= currentUser.username %><img class="avatar" src="<%= currentUser.avatar %>"></a></p>
 		    					<a class="btn btn-outline-warning my-2 my-sm-0" href="/logout">Logout</a>
 		    				<% } %>
 		    			</form>

@@ -6,7 +6,7 @@ body {
   z-index: 1;
   position: relative;
   text-align: center;
-  padding-top: 40vh;
+  padding-top: 15vh;
 }
 
 #landing-header h1 {
@@ -20,6 +20,11 @@ body {
   font-size: 1.5em;
   padding: 15px;
   letter-spacing: .04em;
+}
+
+.landing-tent {
+  color: white;
+  margin-bottom: -15px;
 }
 
 .search-form {
