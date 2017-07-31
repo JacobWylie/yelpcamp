@@ -19,12 +19,17 @@ body, wrapper {
 nav {
 	background: url(../img/nav-bg.png) no-repeat center center;
 	background-size: cover;
-	min-height: 100px;
+	min-height: 180px;
 	opacity: .8;
 }
 
 .site-name {
-	font-size: 22px;
+	font-size: 26px;
+}
+
+.home-brand:hover,
+.home-link:hover {
+	opacity: .6;
 }
 
 .nav-item {
@@ -188,6 +193,11 @@ nav {
 	font-size: .75em;
 }
 
+@media(max-width: 992px) {
+	nav {
+		min-height: 80px;
+	}
+}
 
 /* Fixes responsive navbar centering in xs */
 @media screen and (max-width: 575px) {
