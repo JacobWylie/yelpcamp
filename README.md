@@ -1,6 +1,6 @@
 <h1>Campground Reviews</h1>
-<p>A platform to share and discuss camping grounds. All information uploaded and shared by user accounts. Preview coming soon...</p>
-<h5>Technologies Utilized</h5>
+A platform to share and discuss camping grounds. All information uploaded and shared by user accounts. Preview coming soon...
+<h3>Technologies Utilized</h3>
 <img src="http://i.imgur.com/3gSRLVj.png">
 <img src="http://i.imgur.com/486zTVe.jpg">
 <img src="http://imgur.com/eOGFLTl.png">
@@ -9,17 +9,56 @@
 <img src="http://i.imgur.com/nrnczLC.jpg">
 <br>
 
-<h3>To install and use</h3>
-<p>Clone repo</p>
-<p>git clone https://github.com/JacobWylie/yelpcamp.git</p>
-<p>npm init</p>
-<p>npm start</p>
-<h4>Set your servers environment variable</h4>
-<p>Set which database your server will connect to: DATABASEURL="your databaseURL"</p>
-<p>Set the name of the database to log to console: DATABASENAME="your database name"</p>
-<p>Set which port your app will run on: PORT="whichever port you like"</p>
-<p>Set a user admin code on your server: ADMINCODE="your code"</p>
+<h3>Install and Use</h3>
 
+Clone repo
+
+```unix
+
+git clone https://github.com/JacobWylie/yelpcamp.git
+
+```
+
+```unix
+npm init
+npm start
+
+```
+
+
+<h3>Set your servers environment variable</h3>
+
+Set which database your server will connect to
+
+```unix
+
+DATABASEURL="your databaseURL"
+
+```
+
+Set the name of the database to log to console 
+
+```unix
+
+DATABASENAME="your database name"
+
+```
+
+Set which port your app will run on
+
+```unix
+
+PORT="whichever port you like"
+
+```
+
+Set a user admin code on your server 
+
+```unix
+
+ADMINCODE="your code"
+
+```
 
 <h3>Initial Setup</h3>
 
