@@ -19,44 +19,85 @@ git clone https://github.com/JacobWylie/yelpcamp.git
 
 ```
 
+Install modules and run app
+
 ```unix
+
 npm init
 npm start
 
 ```
 
 
-<h3>Set your servers environment variable</h3>
+<h3>Set your server's process.env variables</h3>
+<h4>OSX / Unix Terminal</h4>
 
-Set which database your server will connect to
+Set the database URL that your app will connect to
+* app will connect to a public database if you do not specify your own
 
 ```unix
 
-DATABASEURL="your databaseURL"
+$ export DATABASEURL="your-databaseURL"
 
 ```
 
-Set the name of the database to log to console 
+Name your database to notify you in the console when app is running
 
 ```unix
 
-DATABASENAME="your database name"
+$ export DATABASENAME="your-database-name"
 
 ```
 
-Set which port your app will run on
+Set your preferred port number
+* Default is 3000
 
 ```unix
 
-PORT="whichever port you like"
+$ export PORT="whichever-port-number-you-like"
 
 ```
 
-Set a user admin code on your server 
+Set the admin password for a user to sign up with admin priviledges
 
 ```unix
 
-ADMINCODE="your code"
+$ export ADMINCODE="your-secret-code"
+
+```
+<h4>Windows</h4>
+
+Set the database URL that your app will connect to
+* app will connect to a public database if you do not specify your own
+
+```unix
+
+$ SET DATABASEURL="your-databaseURL"
+
+```
+
+Name your database to notify you in the console when app is running
+
+```unix
+
+$ SET DATABASENAME="your-database-name"
+
+```
+
+Set your preferred port number
+* Default is 3000
+
+```unix
+
+$ SET PORT="whichever-port-number-you-like"
+
+```
+
+Set the admin password for a user to sign up with admin priviledges
+
+```unix
+
+$ SET ADMINCODE="your-secret-code"
 
 ```
 
