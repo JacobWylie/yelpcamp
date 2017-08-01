@@ -1,18 +1,19 @@
 <% include ../partials/header %>
 
-	<div class="row justify-content-center">
-		<h1 class="text-center mt-2 mb-4 new-campground-heading col-12">Add New Comment to <%= campground.name %></h1>
+	<div class="container main">
+		<div class="row justify-content-center mt-4">
+			<h1 class="text-center mt-2 mb-4 new-campground-heading col-12">Add New Comment to <%= campground.name %></h1>
 
-		<form class="new-campground-form mt-2 col-md-8" action="/campgrounds/<%= campground._id %>/comments" method="POST">
-			<div class="form-group">
-				<label for="text">Comment:</label>
-				<!-- comment[text] passes infor as object -->
-				<textarea class="form-control" id="text" type="text" name="comment[text]"></textarea>
-			</div>
-			<button class="btn btn-primary btn-block submit" type="submit">Submit</button>
-			<a href="/campgrounds/<%= campground._id %>" class="btn btn-link btn-sm mt-2" role="button">Go Back</a>
-		</form>
+			<form class="new-campground-form mt-2 col-md-8" action="/campgrounds/<%= campground._id %>/comments" method="POST">
+				<div class="form-group">
+					<label for="text">Comment:</label>
+					<!-- comment[text] passes infor as object -->
+					<textarea class="form-control" id="text" type="text" name="comment[text]"></textarea>
+				</div>
+				<button class="btn btn-primary btn-block submit" type="submit">Submit</button>
+				<a href="/campgrounds/<%= campground._id %>" class="btn btn-link btn-sm mt-2" role="button">Go Back</a>
+			</form>
 
-	</div>
+		</div>
 
 <% include ../partials/footer %>

@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<wrapper class="d-flex flex-column">	
-			<nav class="navbar navbar-toggleable-md navbar-light bg-faded mb-4">
+			<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
 				<div class="container nav-container">
 		  			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		    			<span class="navbar-toggler-icon"></span>
@@ -39,20 +39,20 @@
 	  			</div>
 			</nav>
 
-			<div class="container mb-4">
+			<div class="container flash">
 				<% if (error && error.length > 0) { %>
-					<div class="alert alert-danger text-center" role="alert">
+					<div class="alert alert-danger text-center mb-3" role="alert">
 		  				<strong>Oh snap!</strong> <%= error %>
 					</div>
 				<% } %>
 				<% if (success && success.length > 0) { %>
-					<div class="alert alert-success text-center" role="alert">
+					<div class="alert alert-success text-center mb-3" role="alert">
 	  					<%= success %>
 					</div>
 				<% } %>
 			</div>
 
-			<div class="container main">
+			
 
 
 

@@ -1,27 +1,28 @@
 <% include ../partials/header %>
 
-<div class="row">
-	<div class="card col-md-4">
-  		<img class="card-img-top img-fluid img-thumbnail profile-image" src="<%= user.avatar %>" alt="Card image cap">
-  		<div class="card-block">
-    		<h4 class="card-title"><%= user.username %></h4>
-    		<p class="card-text">Email: <a href="mailto:<%= user.email %>"><%= user.email %></a></p>
-    		<h5 class="card-title">Bio:</h5>
-  			<p class="card-text"><%= user.bio %></p>
-  		</div>
-	</div>
-	<div class="col-md-7 mt-5 ml-5">
+	<div class="container main">
+		<div class="row mt-4">
+			<div class="card col-md-4">
+		  		<img class="card-img-top img-fluid img-thumbnail profile-image" src="<%= user.avatar %>" alt="Card image cap">
+		  		<div class="card-block">
+		    		<h4 class="card-title"><%= user.username %></h4>
+		    		<p class="card-text">Email: <a href="mailto:<%= user.email %>"><%= user.email %></a></p>
+		    		<h5 class="card-title">Bio:</h5>
+		  			<p class="card-text"><%= user.bio %></p>
+		  		</div>
+			</div>
+			<div class="col-md-7 mt-5 ml-5">
 
-		<h4>Campgrounds posted by <%= user.username %></h4>
-		<% if(campgrounds.length < 1) { %>
-			<h6 class="mt-4 ml-2"><em>No campgrounds submitted yet...</em></h6> 
-		<% } else { %>
-			<% campgrounds.forEach( campground => { %>
-					<p class="user-campground-list"><a href="../campgrounds/<%= campground.id %>"><%= campground.name %></a></p>
-			<% }) %>
-		<% } %>
-		</ul>
-	</div>
-</div>
+				<h4>Campgrounds posted by <%= user.username %></h4>
+				<% if(campgrounds.length < 1) { %>
+					<h6 class="mt-4 ml-2"><em>No campgrounds submitted yet...</em></h6> 
+				<% } else { %>
+					<% campgrounds.forEach( campground => { %>
+							<p class="user-campground-list"><a href="../campgrounds/<%= campground.id %>"><%= campground.name %></a></p>
+					<% }) %>
+				<% } %>
+				</ul>
+			</div>
+		</div>
 
 <% include ../partials/footer %>

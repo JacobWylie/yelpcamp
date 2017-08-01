@@ -23,6 +23,10 @@ nav {
 	opacity: .8;
 }
 
+.flash {
+	max-height: 0;
+}
+
 .site-name {
 	font-size: 26px;
 }
@@ -75,13 +79,35 @@ nav {
 /****************************/
 /* INDEX */
 /****************************/
-.jumbotron {
+header.jumbotron {
 	background: url(../img/jumbo-bg.jpg) no-repeat center center fixed;
 	background-size: cover;
 	opacity: 1;
 	min-height: 600px;
+	min-width: 100%;
 	color: white;
-	border-radius: 15px;
+	border-radius: 0;
+}
+
+.arrow {
+}
+
+.bounce {
+  -moz-animation: bounce 2s infinite;
+  -webkit-animation: bounce 2s infinite;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
 }
 
 .index-card {
@@ -115,6 +141,10 @@ nav {
 .search-btn {
 	max-width: 100px;
 	cursor: pointer;
+}
+
+.jumbo-btn {
+	display: inline-block;
 }
 
 /****************************/

@@ -1,37 +1,38 @@
 <% include ./partials/header %>
+	
+	<div class="container main">
+		<h1 class="text-center mt-5">Sign Up for a New Account</h1>
 
-	<h1 class="text-center mt-3">Sign Up for a New Account</h1>
-
-	<form class="login-form mt-5 mb-2" action='/register' method="POST">
-		<div class="form-group">
-		 	<label for="username">Username</label>
-			<input class="form-control" type="text" name="username" placeholder="John Doe">
-		</div>
-		<div class="form-group">
-			<label for="password">Password</label>
-			<input class="form-control" type="password" name="password" placeholder="********">
-		</div>
-		<div class="form-group">
-			<label for="email">Email</label>
-			<input class="form-control" type="email" name="email" placeholder="johndoe@gmail.com">
-		</div>
-		<div class="form-group">
-			<label for="bio">Bio</label>
-			<textarea class="form-control" type="bio" name="bio" rows="5" placeholder="Write a short description of yourself and what you enjoy about camping."></textarea>
-		</div>
-		<div class="form-group">
-			<label for="avatar">Profile Picture</label>
-			<input class="form-control" type="url" name="avatar" placeholder="http://i.imgur.com/HAvkX9m.png">
-		</div>
-		<div class="form-group">
-			<label for="adminCode">Admin Code (if applicable)</label>
-			<input class="form-control" type="text" name="adminCode" placeholder="********">
-		</div>
-		<div>
-			<button class="btn btn-primary mt-1 login-btn" type="submit" name="">Register</button>
-		</div>
-	</form>
-	<a class="goback" href="/login">Login</a>
-	<a class="goback" href="/campgrounds">Go Back</a>
+		<form class="login-form mt-5 mb-2" action='/register' method="POST">
+			<div class="form-group">
+			 	<label for="username">Username</label>
+				<input class="form-control" type="text" name="username" placeholder="John Doe">
+			</div>
+			<div class="form-group">
+				<label for="password">Password</label>
+				<input class="form-control" type="password" name="password" placeholder="********">
+			</div>
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input class="form-control" type="email" name="email" placeholder="johndoe@gmail.com">
+			</div>
+			<div class="form-group">
+				<label for="bio">Bio</label>
+				<textarea class="form-control" type="bio" name="bio" rows="5" placeholder="Write a short description of yourself and what you enjoy about camping."></textarea>
+			</div>
+			<div class="form-group">
+				<label for="avatar">Profile Picture</label>
+				<input class="form-control" type="url" name="avatar" placeholder="http://i.imgur.com/HAvkX9m.png">
+			</div>
+			<div class="form-group">
+				<label for="adminCode">Admin Code (if applicable)</label>
+				<input class="form-control" type="text" name="adminCode" placeholder="********">
+			</div>
+			<div>
+				<button class="btn btn-primary mt-1 login-btn" type="submit" name="">Register</button>
+			</div>
+		</form>
+		<a class="goback" href="/login">Login</a>
+		<a class="goback" href="/campgrounds">Go Back</a>
 
 <% include ./partials/footer %>

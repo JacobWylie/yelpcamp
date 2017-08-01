@@ -1,34 +1,35 @@
 <% include ../partials/header %>
 
-	<div class="row justify-content-center">
-		<h1 class="text-center mt-5 mb-4 new-campground-heading col-12">Submit a New Campground</h1>
+	<div class="container main">
+		<div class="row justify-content-center mt-3">
+			<h1 class="text-center mt-5 mb-4 new-campground-heading col-12">Submit a New Campground</h1>
 
-		<form class="new-campground-form mt-2 col-md-8" action="/campgrounds" method="POST">
-			<div class="form-group newCampNameForm">
-				<label for="name">Name of the campground:</label>
-				<input class="form-control" type="text" id="name" type="text" name="name">
-			</div>
-	  		<div class="form-group newCampLocation">
-	    		<label for="description">City, State, and Country (if not in the US)</label>
-	    		<input class="form-control" type="text" id="location" name="location">
-	  		</div>
-	  		<div class="form-group newCampPrice">
-	    		<label for="price">How much does it cost per night?</label>
-	    		<input class="form-control" type="number" id="price" name="price" min="0.01" step="0.01">
-	  		</div>
-			<div class="form-group newCampSummary">
-	    		<label for="description">A short summary of your camping experience:</label>
-	    		<textarea class="form-control" type="text" id="description" name="description" rows="3"></textarea>
-	  		</div>
-	  		<div class="form-group newCampImage">
-	  			<label for="image">Enter an image URL:</label>
-				<input class="form-control" type="url" id="image" type="text" name="image">
-			</div>
-			<button class="btn btn-primary btn-block submit" type="submit">Submit</button>
-			<a href="/campgrounds" class="btn btn-link btn-sm mt-2" role="button">Go Back</a>
-		</form>
+			<form class="new-campground-form mt-2 col-md-8" action="/campgrounds" method="POST">
+				<div class="form-group newCampNameForm">
+					<label for="name">Name of the campground:</label>
+					<input class="form-control" type="text" id="name" type="text" name="name">
+				</div>
+		  		<div class="form-group newCampLocation">
+		    		<label for="description">City, State, and Country (if not in the US)</label>
+		    		<input class="form-control" type="text" id="location" name="location">
+		  		</div>
+		  		<div class="form-group newCampPrice">
+		    		<label for="price">How much does it cost per night?</label>
+		    		<input class="form-control" type="number" id="price" name="price" min="0.01" step="0.01">
+		  		</div>
+				<div class="form-group newCampSummary">
+		    		<label for="description">A short summary of your camping experience:</label>
+		    		<textarea class="form-control" type="text" id="description" name="description" rows="3"></textarea>
+		  		</div>
+		  		<div class="form-group newCampImage">
+		  			<label for="image">Enter an image URL:</label>
+					<input class="form-control" type="url" id="image" type="text" name="image">
+				</div>
+				<button class="btn btn-primary btn-block submit" type="submit">Submit</button>
+				<a href="/campgrounds" class="btn btn-link btn-sm mt-2" role="button">Go Back</a>
+			</form>
 
-	</div>
+		</div>
 
 <!-- <script type="text/javascript" src="/scripts/newCampForm.js"></script> -->
 
