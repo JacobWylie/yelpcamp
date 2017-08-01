@@ -25,8 +25,11 @@ router.post('/register', (req, res) => {
 		avatar: req.body.avatar,
 		bio: req.body.bio
 	});
+
+	// Set a user admin code on your server: ADMINCODE=<your code>
+	const adminCode = process.env.ADMINCODE
 	// Check if new user registers with admin code
-	if(req.body.adminCode === 'admin') {
+	if(req.body.adminCode === adminCode) {
 		newUser.isAdmin = true;
 	};
 	// Creates new user account

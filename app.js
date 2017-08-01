@@ -21,8 +21,17 @@ const commentRoutes    = require('./routes/comments'),
 // For testing, clears db and adds a couple generic campgrounds
 const seedDB = require('./seeds');
 
-// Use local database 
-mongoose.connect('mongodb://localhost/yelpcamp', {useMongoClient: true});
+// Set which database your server will connect to: DATABASEURL=<databaseURL>
+// Set the name of the database to log to console: DATABASENAME=<database name>
+// Backup public database for opensource or server failure
+const url = process.env.DATABASEURL || "mongodb://colt:rusty@ds055525.mongolab.com:55525/yelpcamp"
+// Connect to a Mongo DB: Development or Production depending on server
+mongoose.connect(url, {useMongoClient: true});
+console.log(`Connected to database: ${process.env.DATABASENAME || url}`);
+// !!! SET HEROKU DATABASE URL TO MLAB URL !!!
+// $ heroku config:set DATEBASEURL=<mlab database url>
+// $ heroku config:set DATABASENAME=mlab-sandbox
+
 // Parse incoming request bodies in a middleware before your handlers, 
 // available under the req.body property.
 app.use(bodyParser.urlencoded({extended: true}));
@@ -67,9 +76,12 @@ app.use('/', indexRoutes);
 app.use('/campgrounds/:id/comments', commentRoutes);
 app.use('/campgrounds', campgroundRoutes);
 
-
-//local server
-app.listen(3000, () => console.log('App running on localhost:3000'));
+// Set which port your app will run on: PORT=<whichever port you like>
+// Connect to server specific port or 3000 if none specified
+const port = process.env.PORT || 3000
+app.listen(port, process.env.IP, () => {
+	console.log(`App is running on port: ${port}`);
+})
 
 
 
