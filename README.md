@@ -33,7 +33,7 @@ npm start
 <h3>OSX / Unix Terminal</h3>
 
 Set the database URL that your app will connect to
-* app will connect to a public database if you do not specify your own
+- app will connect to a public database if you do not specify your own
 
 ```unix
 
@@ -50,7 +50,7 @@ $ export DATABASENAME="your-database-name"
 ```
 
 Set your preferred port number
-* Default is 3000
+- Default is 3000
 
 ```unix
 
@@ -68,7 +68,7 @@ $ export ADMINCODE="your-secret-code"
 <h3>Windows</h3>
 
 Set the database URL that your app will connect to
-* app will connect to a public database if you do not specify your own
+- app will connect to a public database if you do not specify your own
 
 ```unix
 
@@ -85,7 +85,7 @@ $ SET DATABASENAME="your-database-name"
 ```
 
 Set your preferred port number
-* Default is 3000
+- Default is 3000
 
 ```unix
 
