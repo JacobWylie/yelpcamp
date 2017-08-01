@@ -13,11 +13,11 @@
 <p>Fork</p>
 <p>npm init</p>
 <p>npm start</p>
-<h4>Optional settings</h4>
-<p>Set which database your server will connect to: DATABASEURL=<databaseURL></p>
-<p>Set the name of the database to log to console: DATABASENAME=<database name></p>
-<p>Set which port your app will run on: PORT=<whichever port you like></p>
-<p>Set a user admin code on your server: ADMINCODE=<your code></p>
+<h4>Set your servers environment variable</h4>
+<p>Set which database your server will connect to: DATABASEURL="your databaseURL"</p>
+<p>Set the name of the database to log to console: DATABASENAME="your database name"</p>
+<p>Set which port your app will run on: PORT="whichever port you like"</p>
+<p>Set a user admin code on your server: ADMINCODE="your code"</p>
 
 
 <h3>Initial Setup</h3>
