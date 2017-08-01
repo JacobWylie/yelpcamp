@@ -1,6 +1,6 @@
 <h1>Campground Reviews</h1>
 A platform to share and discuss camping grounds. All information uploaded and shared by user accounts. Preview coming soon...
-<h3>Technologies Utilized</h3>
+<h2>Technologies Utilized</h2>
 <img src="http://i.imgur.com/3gSRLVj.png">
 <img src="http://i.imgur.com/486zTVe.jpg">
 <img src="http://imgur.com/eOGFLTl.png">
@@ -9,7 +9,7 @@ A platform to share and discuss camping grounds. All information uploaded and sh
 <img src="http://i.imgur.com/nrnczLC.jpg">
 <br>
 
-<h3>Install and Use</h3>
+<h2>Install and Use</h2>
 
 Clone repo
 
@@ -29,8 +29,8 @@ npm start
 ```
 
 
-<h3>Set your server's process.env variables</h3>
-<h4>OSX / Unix Terminal</h4>
+<h2>Set your server's process.env variables</h2>
+<h3>OSX / Unix Terminal</h3>
 
 Set the database URL that your app will connect to
 * app will connect to a public database if you do not specify your own
@@ -65,7 +65,7 @@ Set the admin password for a user to sign up with admin priviledges
 $ export ADMINCODE="your-secret-code"
 
 ```
-<h4>Windows</h4>
+<h3>Windows</h3>
 
 Set the database URL that your app will connect to
 * app will connect to a public database if you do not specify your own
