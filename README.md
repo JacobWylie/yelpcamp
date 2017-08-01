@@ -3,14 +3,15 @@
 <h5>Technologies Utilized</h5>
 <img src="http://i.imgur.com/3gSRLVj.png">
 <img src="http://i.imgur.com/486zTVe.jpg">
-<img src="http://i.imgur.com/sMfsjle.jpg">
 <img src="http://imgur.com/eOGFLTl.png">
+<img src="http://i.imgur.com/sMfsjle.jpg">
 <img src="http://i.imgur.com/nwNhE5F.png">
 <img src="http://i.imgur.com/nrnczLC.jpg">
 <br>
 
 <h3>To install and use</h3>
-<p>Fork</p>
+<p>Clone repo</p>
+<p>git clone https://github.com/JacobWylie/yelpcamp.git</p>
 <p>npm init</p>
 <p>npm start</p>
 <h4>Set your servers environment variable</h4>
