@@ -1,20 +1,24 @@
 <% include ./partials/header %>
 	
 	<div class="container main">
-		<h1 class="text-center mt-5">Login to Your Account</h1>
+		<div class="row">
+			<div class="col-lg-6 offset-lg-3">
+				<h1 class="text-center mt-5">Login to Your Account</h1>
 
-		<form class="login-form mt-5 mb-2" action='/login' method="POST">
-			<div class="form-group">
-				<input class="form-control" type="text" name="username" placeholder="username">
+				<form class="login-form mt-5 mb-2" action='/login' method="POST">
+					<div class="form-group">
+						<input class="form-control" type="text" name="username" placeholder="username">
+					</div>
+					<div class="form-group">
+						<input class="form-control" type="password" name="password" placeholder="password">
+					</div>
+					<div class="">
+						<button class="btn btn-primary mt-1 login-btn" type="submit" name="">Sign in</button>
+					</div>
+				</form>
+				<a class="goback" href="/register">Sign Up</a>
+				<a class="goback" href="/campgrounds">Go Back</a>
 			</div>
-			<div class="form-group">
-				<input class="form-control" type="password" name="password" placeholder="password">
-			</div>
-			<div class="">
-				<button class="btn btn-primary mt-1 login-btn" type="submit" name="">Sign in</button>
-			</div>
-		</form>
-		<a class="goback" href="/register">Sign Up</a>
-		<a class="goback" href="/campgrounds">Go Back</a>
+		</div>
 
 <% include ./partials/footer %>
