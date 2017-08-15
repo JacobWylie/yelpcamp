@@ -15,11 +15,11 @@ submitButton.disabled = true;
 
 // Checks form input values 
 const checkForm = () => {
-	if (newCampNameForm.classList.contains('has-success') &&
-		newCampLocationForm.classList.contains('has-success') && 
-		newCampPriceForm.classList.contains('has-success') && 
-		newCampSummaryForm.classList.contains('has-success') && 
-		newCampImageForm.classList.contains('has-success')) {
+	if (newCampName.value !== "" && 
+		newCampLocation.value !== "" && 
+		newCampPrice.value !== "" && 
+		newCampSummary.value !== "" && 
+		newCampImage.value !== "") {
 		submitButton.disabled = false;
 	} else {
 		submitButton.disabled = true;
@@ -48,8 +48,8 @@ newCampLocation.addEventListener('keyup', function() {
 	checkForm();
 })
 
-newCampPrice.addEventListener('keyup', function() {
-	if (this.value !== '') {
+newCampPrice.addEventListener('change', function() {
+	if (this.value > 0) {
 		newCampPriceForm.classList.add('has-success');
 		this.classList.add('form-control-success');
 	} else {

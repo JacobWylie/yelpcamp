@@ -13,7 +13,7 @@ A platform to share and discuss camping grounds. All information uploaded and sh
 
 Clone repo
 
-```unix
+```
 
 git clone https://github.com/JacobWylie/yelpcamp.git
 
@@ -21,7 +21,7 @@ git clone https://github.com/JacobWylie/yelpcamp.git
 
 Install modules and run app
 
-```unix
+```
 
 npm init
 npm start
@@ -34,7 +34,7 @@ npm start
 
 Set the database URL that your app will connect to. The app will connect to a public database if you do not specify your own
 
-```unix
+```
 
 $ export DATABASEURL="your-databaseURL"
 
@@ -42,7 +42,7 @@ $ export DATABASEURL="your-databaseURL"
 
 Name your database to notify you in the console when app is running
 
-```unix
+```
 
 $ export DATABASENAME="your-database-name"
 
@@ -50,7 +50,7 @@ $ export DATABASENAME="your-database-name"
 
 Set your preferred port number. The Default port is set to 3000
 
-```unix
+```
 
 $ export PORT="whichever-port-number-you-like"
 
@@ -58,7 +58,7 @@ $ export PORT="whichever-port-number-you-like"
 
 Set the admin password for a user to sign up with admin priviledges
 
-```unix
+```
 
 $ export ADMINCODE="your-secret-code"
 
@@ -67,7 +67,7 @@ $ export ADMINCODE="your-secret-code"
 
 Set the database URL that your app will connect to. The app will connect to a public database if you do not specify your own
 
-```unix
+```
 
 $ SET DATABASEURL="your-databaseURL"
 
@@ -75,7 +75,7 @@ $ SET DATABASEURL="your-databaseURL"
 
 Name your database to notify you in the console when app is running
 
-```unix
+```
 
 $ SET DATABASENAME="your-database-name"
 
@@ -83,7 +83,7 @@ $ SET DATABASENAME="your-database-name"
 
 Set your preferred port number. The Default port is set to 3000
 
-```unix
+```
 
 $ SET PORT="whichever-port-number-you-like"
 
@@ -91,7 +91,7 @@ $ SET PORT="whichever-port-number-you-like"
 
 Set the admin password for a user to sign up with admin priviledges
 
-```unix
+```
 
 $ SET ADMINCODE="your-secret-code"
 
