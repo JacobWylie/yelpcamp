@@ -18,9 +18,6 @@ const commentRoutes    = require('./routes/comments'),
 	  campgroundRoutes = require('./routes/campgrounds'),
 	  indexRoutes	   = require('./routes/index');
 
-// For testing, clears db and adds a couple generic campgrounds
-const seedDB = require('./seeds');
-
 // Set which database your server will connect to: DATABASEURL=<databaseURL>
 // Set the name of the database to log to console: DATABASENAME=<database name>
 // Backup public database for opensource or server failure
@@ -46,6 +43,8 @@ app.use(flash());
 // Use momentJS to track time since creation
 app.locals.moment = require('moment');
 
+// For testing, clears db and adds a couple generic campgrounds
+// const seedDB = require('./seeds');
 // Clears the database and populates with stock data for testing
 // seedDB();
 
