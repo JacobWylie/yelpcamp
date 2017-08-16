@@ -2,6 +2,7 @@ const express  = require('express'),
 	  router   = express.Router(),
 	  passport = require('passport'),
 	  User 	   = require('../models/user'),
+	  middleware = require('../middleware'),
 	  Campground = require('../models/campground');
 
 // ROOT Route
@@ -73,7 +74,7 @@ router.get('/logout', (req, res) => {
 	// Passport method
 	req.logout();
 	req.flash('success', 'You are now logged out');
-	res.redirect('back');
+	res.redirect('campgrounds');
 })
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -81,7 +82,7 @@ router.get('/logout', (req, res) => {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // Takes you to the users public profile page
-router.get('/users/:id', (req, res) => {
+router.get('/users/:id', middleware.isLoggedIn, (req, res) => {
 	// Find the user whos profile was selected
 	User.findById(req.params.id, (err, foundUser) => {
 		if(err) {

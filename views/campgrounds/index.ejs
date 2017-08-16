@@ -9,7 +9,7 @@
 			<h1 class="mt-3">Welcome to Campground Reviews!</h1>
 			<h6 class="my-4 mb-5">View our user-submitted campgrounds from all over the world</h6>
 			<a href="/campgrounds/new" class="jumbo-btn btn btn-primary mx-4 mb-4" role="button">Add a new Campground</a>
-			<a href="#campgrounds" class="jumbo-btn btn btn-success mb-4">View All Campgrounds</a>
+			<a href="/campgrounds#campgrounds" class="jumbo-btn btn btn-success mb-4">View All Campgrounds</a>
 			<form class="search-form" action="/campgrounds" method="GET">
 				<div class="row justify-content-center">
 					<input class="col-sm-6 form-control search-input mb-4" type="search" name="search" placeholder="Enter keywords...">
@@ -27,7 +27,7 @@
 		<div class="row mb-4">
 
 			<!-- display Search results -->
-			<div class="col-lg-12 text-center">
+			<div class="col-lg-12 text-center" id="search">
 				<% if(results !== undefined) { %>
 					<h5 class="mt-3"><%= results %></h5>
 				<% } %>

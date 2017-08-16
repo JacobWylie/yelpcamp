@@ -3,7 +3,7 @@
 	<div class="container main">
 		<div class="mt-5 mb-5">
 			<div class="row">
-				<div class="col-md-3">
+				<div class="col-md-4">
 					<p class="lead">Campground Reviews</p>
 					<div class="group">
 						<li class="list-group-item active">Info 1</li>
@@ -11,9 +11,9 @@
 						<li class="list-group-item">Info 3</li>
 					</div>
 					<div id="map"></div> <!-- google maps -->
-				</div> <!-- /col-md-3 -->
+				</div> <!-- /col-md-4 -->
 
-				<div class="col-md-9">
+				<div class="col-md-8 mt-4">
 
 					<div class="card card-outline-secondary">
 						<img class="img-responsive img-rounded mb-2 img-fluid" src="<%= campground.image %>">
@@ -35,7 +35,10 @@
 						</div>
 					</div>
 
-					<div class="card bg-faded mt-5">
+				</div> <!-- /col-md-8 -->
+
+				<div class="col-md-10 offset-md-1">
+				<div class="card bg-faded mt-5">
 						<div class="card-block">
 							<a class="btn btn-success btn-sm float-right" href="/campgrounds/<%= campground._id %>/comments/new">
 								Add New Comment
@@ -62,8 +65,7 @@
 							<% }) %>
 						</div>
 					</div>
-
-				</div> <!-- /col-md-9 -->
+				</div> <!-- col md-12 -->
 
 			</div> <!-- /row -->
 		</div> <!-- /container -->

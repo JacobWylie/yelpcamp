@@ -69,7 +69,7 @@ app.use(function(req, res, next) {
 	next();
 });
 
-// Tells our app to use the seperate route files
+// Express router will append route prefixes in the route files
 // Appends route prefix to url
 app.use('/', indexRoutes);
 app.use('/campgrounds/:id/comments', commentRoutes);
