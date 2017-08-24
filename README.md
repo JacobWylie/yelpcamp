@@ -23,7 +23,7 @@ Install modules and run app
 
 ```
 
-npm init
+npm install
 npm start
 
 ```
