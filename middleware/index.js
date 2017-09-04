@@ -14,7 +14,7 @@ middlewareObj.isLoggedIn = (req, res, next) => {
 		return next();
 	}
 	req.flash('error', 'You must be logged in to do that.');
-	res.redirect('/login');
+	res.redirect('/camp/login');
 }
 
 // Check to see if user has permissions for campground routes

@@ -65,7 +65,7 @@ router.get('/:comment_id/edit', middleware.checkCommentOwnership, (req, res) => 
 			req.flash('error', "Something went wrong");
 			res.redirect('back');
 		} else {
-			res.render('comments/edit', {campground_id: req.params.id, comment: foundComment});
+			res.render('/comments/edit', {campground_id: req.params.id, comment: foundComment});
 		}
 	})
 })

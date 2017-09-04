@@ -21,7 +21,7 @@ const commentRoutes    = require('./routes/comments'),
 // Set which database your server will connect to: DATABASEURL=<databaseURL>
 // Set the name of the database to log to console: DATABASENAME=<database name>
 // Backup public database for opensource or server failure
-const url = process.env.DATABASEURL || "mongodb://colt:rusty@ds055525.mongolab.com:55525/yelpcamp"
+const url = process.env.DATABASE_URL || "mongodb://colt:rusty@ds055525.mongolab.com:55525/yelpcamp"
 // Connect to a Mongo DB: Development or Production depending on server
 mongoose.connect(url, {useMongoClient: true});
 console.log(`Connected to database: ${process.env.DATABASENAME || url}`);
@@ -33,7 +33,7 @@ console.log(`Connected to database: ${process.env.DATABASENAME || url}`);
 // available under the req.body property.
 app.use(bodyParser.urlencoded({extended: true}));
 // Serve static js and css from /public
-app.use(express.static(__dirname + '/public'));
+app.use('/camp', express.static(__dirname + '/public'));
 // Use .ejs templating
 app.set('view engine', 'ejs');
 // Method override for UPDATE http from request
@@ -69,15 +69,15 @@ app.use(function(req, res, next) {
 	next();
 });
 
-// Express router will append route prefixes in the route files
-// Appends route prefix to url
-app.use('/', indexRoutes);
-app.use('/campgrounds/:id/comments', commentRoutes);
-app.use('/campgrounds', campgroundRoutes);
+// // Express router will append route prefixes in the route files
+// // Appends route prefix to url
+app.use('/camp', indexRoutes);
+app.use('/camp/campgrounds/:id/comments', commentRoutes);
+app.use('/camp/campgrounds', campgroundRoutes);
 
 // Set which port your app will run on: PORT=<whichever port you like>
 // Connect to server specific port or 3000 if none specified
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 8083
 app.listen(port, process.env.IP, () => {
 	console.log(`App is running on port: ${port}`);
 })

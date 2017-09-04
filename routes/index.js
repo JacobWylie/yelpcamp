@@ -57,8 +57,8 @@ router.get('/login', (req, res) => {
 // Handles login logic
 router.post('/login', passport.authenticate('local', 
 	{
-		successRedirect: '/campgrounds',
-		failureRedirect: '/login',
+		successRedirect: '/camp/campgrounds',
+		failureRedirect: '/camp/login',
 		successFlash: { type: 'success', message: "Welcome back!"},
 		failureFlash: true,
 		
@@ -95,7 +95,7 @@ router.get('/users/:id', middleware.isLoggedIn, (req, res) => {
 				req.flash('error', 'There was an error finding that user');
 				res.redirect('back');
 			}
-			res.render('users/show', {user: foundUser, campgrounds: campgrounds});			
+			res.render('/users/show', {user: foundUser, campgrounds: campgrounds});			
 		})
 	})
 })

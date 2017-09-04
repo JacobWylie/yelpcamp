@@ -8,9 +8,9 @@
 		<div class="container text-center">
 			<h1 class="mt-3">Welcome to Campground Reviews!</h1>
 			<h6 class="my-4 mb-5">View our user-submitted campgrounds from all over the world</h6>
-			<a href="/campgrounds/new" class="jumbo-btn btn btn-primary mx-4 mb-4" role="button">Add a new Campground</a>
-			<a href="/campgrounds#campgrounds" class="jumbo-btn btn btn-success mb-4">View All Campgrounds</a>
-			<form class="search-form" action="/campgrounds" method="GET">
+			<a href="/camp/campgrounds/new" class="jumbo-btn btn btn-primary mx-4 mb-4" role="button">Add a new Campground</a>
+			<a href="/camp/campgrounds#campgrounds" class="jumbo-btn btn btn-success mb-4">View All Campgrounds</a>
+			<form class="search-form" action="/camp/campgrounds" method="GET">
 				<div class="row justify-content-center">
 					<input class="col-sm-6 form-control search-input mb-4" type="search" name="search" placeholder="Enter keywords...">
 					<input class="col-sm-6 btn btn-info search-btn mb-4" type="submit" name="" value="Search">
@@ -18,7 +18,7 @@
 			</form>
 			<h6 class="mt-3">Search for your favorites!</h6>
 			<div class="arrow bounce mt-5">
-  				<a class="" href="#campgrounds"><img src="../img/aarow.png"></a>
+  				<a class="" href="#campgrounds"><img src="/camp/img/aarow.png"></a>
 			</div>
 		</div>
 	</header>
@@ -45,11 +45,11 @@
 			<% campgrounds.forEach((campground => { %>
 				<div class="col-lg-4 col-md-6 col-sm-12 mt-4">
 					<div class="card text-center card-outline-secondary index-card" style="">
-						<a href="/campgrounds/<%= campground._id %>""><img class="card-img-top index-card-img-top img-fluid" src="<%= campground.image %>" alt="Card image cap"></a>
+						<a href="/camp/campgrounds/<%= campground._id %>""><img class="card-img-top index-card-img-top img-fluid" src="<%= campground.image %>" alt="Card image cap"></a>
 						<div class="card-block index-card-block">
 							<h3 class="card-title"><%= campground.name %></h3>
 					    	<p class="card-text"><%= campground.location %></p>
-					    	<a href="/campgrounds/<%= campground._id %>" class="btn btn-outline-success">Explore <%= campground.name %></a>
+					    	<a href="/camp/campgrounds/<%= campground._id %>" class="btn btn-outline-success">Explore <%= campground.name %></a>
 						</div> <!-- /card-block -->
 					</div> <!-- /card -->
 				</div> <!-- /col -->

@@ -23,12 +23,12 @@
 							<h5 class="text-muted mt-2"><%= campground.location %></h5>
 							<p class="mt-5 camp-description"><%= campground.description %></p>
 							<p class="mt-5">
-								<em>Submitted by: <a href="/users/<%= campground.author.id %>"><img class="avatar" src="<%= campground.author.avatar %>"><%= campground.author.username %></a> - <%= moment(campground.createdAt).fromNow() %></em>
+								<em>Submitted by: <a href="/camp/users/<%= campground.author.id %>"><img class="avatar" src="<%= campground.author.avatar %>"><%= campground.author.username %></a> - <%= moment(campground.createdAt).fromNow() %></em>
 							</p>
 							<!-- Hides/Shows buttons if campground belongs to currentUser -->
 							<% if(currentUser && campground.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
-								<a class="btn btn-warning mt-3 edit-btn" href="/campgrounds/<%= campground._id %>/edit">Edit Campground Info</a>
-								<form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST" class="delete-form">
+								<a class="btn btn-warning mt-3 edit-btn" href="/camp/campgrounds/<%= campground._id %>/edit">Edit Campground Info</a>
+								<form action="/camp/campgrounds/<%= campground._id %>?_method=DELETE" method="POST" class="delete-form">
 									<input type="submit" class="btn btn-danger mt-3 delete-btn" value="Delete Campground">
 								</form>
 							<% } %>
@@ -40,7 +40,7 @@
 				<div class="col-md-10 offset-md-1">
 				<div class="card bg-faded mt-5">
 						<div class="card-block">
-							<a class="btn btn-success btn-sm float-right" href="/campgrounds/<%= campground._id %>/comments/new">
+							<a class="btn btn-success btn-sm float-right" href="/camp/campgrounds/<%= campground._id %>/comments/new">
 								Add New Comment
 							</a>
 							<h4 class="card-title mb-4">Comments</h4>
@@ -49,14 +49,14 @@
 								<div class="row">
 									<div class="col-md-12">
 										<span class="float-right"><%= moment(comment.createdAt).fromNow() %></span>
-										<p class="font-weight-bold"><a href="/users/<%= comment.author.id %>"><img class="avatar" src="<%= comment.author.avatar %>"><%= comment.author.username %></a> says...</p>
+										<p class="font-weight-bold"><a href="/camp/users/<%= comment.author.id %>"><img class="avatar" src="<%= comment.author.avatar %>"><%= comment.author.username %></a> says...</p>
 										<p class="card-text mb-3"><%= comment.text %></p>
 										<!-- Hides/Shows buttons if comments belongs to currentUser -->
 										<% if(currentUser && comment.author.id.equals(currentUser.id) || currentUser && currentUser.isAdmin) { %>
-											<a class="btn btn-sm btn-warning mt-1 mb-3" href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit">
+											<a class="btn btn-sm btn-warning mt-1 mb-3" href="/camp/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit">
 												Edit Comment
 											</a>
-											<form action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST" class="delete-form">
+											<form action="/camp/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST" class="delete-form">
 												<input type="submit" class="btn btn-sm btn-danger mt-1 mb-3 delete-btn" value="Delete Comment">
 											</form>
 										<% } %>
@@ -70,7 +70,7 @@
 			</div> <!-- /row -->
 		</div> <!-- /container -->
 
-		<a href="/campgrounds">Go Back</a>
+		<a href="/camp/campgrounds">Go Back</a>
 
 	<script>
 	  function initMap() {

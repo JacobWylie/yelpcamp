@@ -61,7 +61,7 @@ router.get('/', (req, res) => {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // NEW - New campground form page route
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-router.get('/new', middleware.isLoggedIn, (req, res) => res.render('campgrounds/new'));
+router.get('/new', middleware.isLoggedIn, (req, res) => res.render('/campgrounds/new'));
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // CREATE - Add new campground to /campgrounds
@@ -135,7 +135,7 @@ router.get('/:id/edit', middleware.checkCampgroundOwnership, (req, res) => {
 			res.redirect('back');
 		} else {
 			// Load edit form and passes campground information to form
-			res.render('campgrounds/edit', {campground: foundCampground});
+			res.render('/campgrounds/edit', {campground: foundCampground});
 		}
 	})
 })
