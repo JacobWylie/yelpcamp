@@ -40,7 +40,7 @@ router.post('/register', (req, res) => {
 		}
 		passport.authenticate('local')(req, res, () => {
 			req.flash('success', `Welcome to Campground Reviews ${req.body.username}! Thanks for signing up.`);
-			res.redirect('/campgrounds');
+			res.redirect('/camp/campgrounds');
 		})
 	});
 });
@@ -74,7 +74,7 @@ router.get('/logout', (req, res) => {
 	// Passport method
 	req.logout();
 	req.flash('success', 'You are now logged out');
-	res.redirect('campgrounds');
+	res.redirect('/camp/campgrounds');
 })
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
