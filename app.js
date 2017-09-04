@@ -21,7 +21,8 @@ const commentRoutes    = require('./routes/comments'),
 // Set which database your server will connect to: DATABASEURL=<databaseURL>
 // Set the name of the database to log to console: DATABASENAME=<database name>
 // Backup public database for opensource or server failure
-const url = process.env.DATABASE_URL // || "mongodb://colt:rusty@ds055525.mongolab.com:55525/yelpcamp"
+const url = "mongodb://heroku_s25v6880:q8lvfeu1097soh3etk5vi057cv@ds153652.mlab.com:53652/heroku_s25v6880"; 
+// process.env.DATABASE_URL; // || "mongodb://colt:rusty@ds055525.mongolab.com:55525/yelpcamp"
 // Connect to a Mongo DB: Development or Production depending on server
 mongoose.connect(url, {useMongoClient: true});
 console.log(`Connected to database: ${process.env.DATABASENAME || url}`);
