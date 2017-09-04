@@ -27,7 +27,34 @@ npm install
 npm start
 
 ```
+<h2>Routes are setup to be used as sub-directory of my porfolio and will be prepended with /camp/</h2>
+<h3>Site can be accessed from localhost:3000/camp or remove /camp/ route</h3>
+<h3>Remove "/camp" from routes in app.js</h3>
 
+```javascript
+
+app.use('/camp', indexRoutes);
+app.use('/camp/campgrounds/:id/comments', commentRoutes);
+app.use('/camp/campgrounds', campgroundRoutes);
+
+```
+
+<h3>Remove "/camp" from redirect routes</h3>
+ 
+ ```javascript
+
+ res.redirect(`/camp/campgrounds/${newlyCreated._id}`);
+
+ ```
+
+<h3>Remove /camp/ prefix from view files. Routes and Links</h3>
+
+```html
+
+<form class="search-form" action="/camp/campgrounds" method="GET">
+<a href="/camp/campgrounds/<%= campground._id %>"
+
+```
 
 <h2>Set your server's process.env variables</h2>
 <h3>OSX / Unix Terminal</h3>

@@ -70,11 +70,16 @@ app.use(function(req, res, next) {
 	next();
 });
 
-// // Express router will append route prefixes in the route files
-// // Appends route prefix to url
+// // Express router will prepend route prefixes in the route files
+// // Prepends route prefix to url
 app.use('/camp', indexRoutes);
 app.use('/camp/campgrounds/:id/comments', commentRoutes);
 app.use('/camp/campgrounds', campgroundRoutes);
+
+// Everywhere else leads to -> INDEX
+app.get('*', (req, res) => {
+	res.redirect('/camp/campgrounds')
+})
 
 // Set which port your app will run on: PORT=<whichever port you like>
 // Connect to server specific port or 3000 if none specified

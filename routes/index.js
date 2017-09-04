@@ -28,7 +28,7 @@ router.post('/register', (req, res) => {
 	});
 
 	// Set a user admin code on your server: ADMINCODE=<your code>
-	const adminCode = process.env.ADMINCODE
+	const adminCode = 1111;// process.env.ADMINCODE
 	// Check if new user registers with admin code
 	if(req.body.adminCode === adminCode) {
 		newUser.isAdmin = true;
@@ -82,7 +82,7 @@ router.get('/logout', (req, res) => {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // Takes you to the users public profile page
-router.get('/users/:id', middleware.isLoggedIn, (req, res) => {
+router.get('/users/:id', (req, res) => {
 	// Find the user whos profile was selected
 	User.findById(req.params.id, (err, foundUser) => {
 		if(err) {
@@ -95,7 +95,7 @@ router.get('/users/:id', middleware.isLoggedIn, (req, res) => {
 				req.flash('error', 'There was an error finding that user');
 				res.redirect('back');
 			}
-			res.render('/users/show', {user: foundUser, campgrounds: campgrounds});			
+			res.render('users/show', {user: foundUser, campgrounds: campgrounds});			
 		})
 	})
 })
