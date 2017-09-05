@@ -3,6 +3,8 @@
 /****************************/
 body, wrapper {
 	min-height: 100vh;
+	font-family: 'Viga', sans-serif;
+	letter-spacing: .08em;
 }
 
 .main {
@@ -89,7 +91,8 @@ header.jumbotron {
 	border-radius: 0;
 }
 
-.arrow {
+header h1 {
+	font-size: 3.5em;
 }
 
 .bounce {
