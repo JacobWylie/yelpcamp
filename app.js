@@ -6,7 +6,8 @@ const express     	 = require('express'),
 	  flash			 = require('connect-flash'),
 	  passport       = require('passport'),
 	  LocalStrategy  = require('passport-local'),
-	  methodOverride = require('method-override');
+	  methodOverride = require('method-override'),
+	  path           = require("path");
 
 // Mongoose Models
 const Campground = require('./models/campground'),
