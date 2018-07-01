@@ -38,7 +38,7 @@ app.use('/camp', express.static(__dirname + '/public'));
 // Use .ejs templating
 app.set('view engine', 'ejs');
 // Point towards correct views folder
-// app.set('views','jacobwylie/yelcamp/views');
+app.set('views','/home/jacobwylie/yelcamp/views');
 // Method override for UPDATE http from request
 app.use(methodOverride('_method'))
 // Use flash alerts
